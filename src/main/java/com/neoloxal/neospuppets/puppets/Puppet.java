@@ -1,7 +1,12 @@
 package com.neoloxal.neospuppets.puppets;
 
 import com.mojang.serialization.MapCodec;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
@@ -11,6 +16,8 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class Puppet extends HorizontalDirectionalBlock {
     public static final MapCodec<Puppet> CODEC = simpleCodec(Puppet::new);
@@ -46,6 +53,18 @@ public class Puppet extends HorizontalDirectionalBlock {
             direction = direction.getOpposite();
         }
         return this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, direction);
+    }
+
+    @Override
+    public void appendHoverText(ItemStack stack, Item.TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+        if (!Screen.hasShiftDown()) {
+            tooltipComponents.add(Component.translatable("tooltip.neospuppets.puppet"));
+        } else {
+            tooltipComponents.add(Component.translatable("tooltip.neospuppets.puppet.shift_down.line_1"));
+            tooltipComponents.add(Component.translatable("tooltip.neospuppets.puppet.shift_down.line_2"));
+        }
+
+        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
     }
 }
 

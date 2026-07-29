@@ -3,5 +3,13 @@
 
   "item.neospuppets.puppet_manipulator": "Puppet Manipulator",
 
+  "tooltip.neospuppets.puppet_manipulator": "§8Hold [§7Ctrl§8] for controls.",
+  "tooltip.neospuppets.puppet_manipulator.control_down.line_1": "§8Hold [§f§nCtrl§8] for controls.",
+  "tooltip.neospuppets.puppet_manipulator.control_down.line_2": "§6When right clicked:\n  §fWhen in main hand:\n  §7Changes the pose of a puppet.\n  §fWhen in off hand:\n  §7Rotates puppet clockwise.",
+
+  "tooltip.neospuppets.puppet": "§8Hold [§7Shift§8] for more information.",
+  "tooltip.neospuppets.puppet.shift_down.line_1": "§8Hold [§f§nShift§8] for more information.",
+  "tooltip.neospuppets.puppet.shift_down.line_2": "§7A puppet! If you would like to change the pose,\ncraft a §6§nPuppet Manipulator§r§7.\nYou can change the skin by placing different wool colors on it.\nIf you would like a custom skin craft §6§nPattern Fabric§r§7.",
+
   "messages.neospuppets.puppet_pose_changed": "Changed puppet's pose to %s of %s"
 }
