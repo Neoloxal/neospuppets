@@ -1,8 +1,0 @@
-{
-  "parent": "kubejs:block/generic/floating",
-  "textures": {
-    "skin": "kubejs:block/skin/business_neoloxal",
-	  "outerLayer": "kubejs:block/skin/business_neoloxal",
-	  "particle": "kubejs:block/paint_particles"
-  }
-}

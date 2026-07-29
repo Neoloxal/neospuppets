@@ -7,6 +7,7 @@
 		"outerLayer": "neospuppets:block/blank",
 		"particle": "minecraft:block/oak_planks"
 	},
+	"render_type": "minecraft:cutout",
 	"elements": [
 		{
 			"name": "Head",

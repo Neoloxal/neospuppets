@@ -1,8 +1,0 @@
-{
-  "parent": "kubejs:block/generic/sitting",
-  "textures": {
-    "skin": "kubejs:block/skin/neoloxal",
-	  "outerLayer": "kubejs:block/skin/neoloxal",
-	  "particle": "kubejs:block/paint_particles"
-  }
-}

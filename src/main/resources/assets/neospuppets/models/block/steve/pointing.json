@@ -1,8 +1,0 @@
-{
-  "parent": "kubejs:block/generic/pointing",
-  "textures": {
-    "skin": "kubejs:block/skin/steve",
-    "outerLayer": "kubejs:block/skin/steve",
-    "particle": "kubejs:block/skin/steve"
-  }
-}

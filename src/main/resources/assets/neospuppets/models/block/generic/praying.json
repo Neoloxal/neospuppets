@@ -7,6 +7,7 @@
 		"skin": "block/oak_planks",
 		"outerLayer": "kubejs:block/blank"
 	},
+	"render_type": "minecraft:cutout",
 	"elements": [
 		{
 			"name": "Head",
