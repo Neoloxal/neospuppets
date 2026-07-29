@@ -45,11 +45,15 @@ public class NeosPuppets {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MODID);
 
     public static final DeferredBlock<Block> PUPPET = BLOCKS.register("puppet", () -> new Puppet(BlockBehaviour.Properties.of()
-            .sound(SoundType.WOOD).mapColor(MapColor.WOOD).strength(2.0F, 3.0F)));
+            .sound(SoundType.WOOD)
+            .mapColor(MapColor.WOOD)
+            .strength(2.0F, 3.0F)
+            .noOcclusion()
+    ));
     public static final DeferredItem<Item> PUPPET_ITEM = ITEMS.register("puppet", () -> new BlockItem(PUPPET.get(), new Item.Properties()));
 
 
-    // The constructor for the mod class is the first code that is run when your mod is loaded.
+    // The constructor for the mod class is the first code run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
     public NeosPuppets(IEventBus modEventBus, ModContainer modContainer) {
         // Register the commonSetup method for modloading
