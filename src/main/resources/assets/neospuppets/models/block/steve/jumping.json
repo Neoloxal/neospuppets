@@ -1,0 +1,8 @@
+{
+  "parent": "kubejs:block/generic/jumping",
+  "textures": {
+    "skin": "kubejs:block/skin/steve",
+    "outerLayer": "kubejs:block/skin/steve",
+    "particle": "kubejs:block/skin/steve"
+  }
+}

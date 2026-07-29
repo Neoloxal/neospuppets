@@ -1,0 +1,8 @@
+{
+  "parent": "kubejs:block/generic/t_posing",
+  "textures": {
+    "skin": "kubejs:block/skin/pixelmademess",
+	  "outerLayer": "kubejs:block/skin/pixelmademess",
+	  "particle": "kubejs:block/blood_particles"
+  }
+}

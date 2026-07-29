@@ -1,0 +1,8 @@
+{
+  "parent": "neospuppets:block/generic/balancing",
+  "textures": {
+    "skin": "neospuppets:block/skin/neoloxal",
+	  "outerLayer": "neospuppets:block/skin/neoloxal",
+	  "particle": "neospuppets:block/paint_particles"
+  }
+}

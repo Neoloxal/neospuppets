@@ -1,0 +1,721 @@
+{
+  "variants": {
+    "facing=north,pose=0,skin=puppet": {"model": "neospuppets:block/puppet/sitting"},
+    "facing=east,pose=0,skin=puppet": {"model": "neospuppets:block/puppet/sitting","y": 90},
+    "facing=south,pose=0,skin=puppet": {"model": "neospuppets:block/puppet/sitting","y": 180},
+    "facing=west,pose=0,skin=puppet": {"model": "neospuppets:block/puppet/sitting","y": 270},
+
+    "facing=north,pose=0,skin=1": {"model": "neospuppets:block/neoloxal/sitting"},
+    "facing=east,pose=0,skin=1": {"model": "neospuppets:block/neoloxal/sitting","y": 90},
+    "facing=south,pose=0,skin=1": {"model": "neospuppets:block/neoloxal/sitting","y": 180},
+    "facing=west,pose=0,skin=1": {"model": "neospuppets:block/neoloxal/sitting","y": 270},
+
+    "facing=north,pose=0,skin=2": {"model": "neospuppets:block/business_neoloxal/sitting"},
+    "facing=east,pose=0,skin=2": {"model": "neospuppets:block/business_neoloxal/sitting","y": 90},
+    "facing=south,pose=0,skin=2": {"model": "neospuppets:block/business_neoloxal/sitting","y": 180},
+    "facing=west,pose=0,skin=2": {"model": "neospuppets:block/business_neoloxal/sitting","y": 270},
+
+    "facing=north,pose=0,skin=3": {"model": "neospuppets:block/bopboyma/sitting"},
+    "facing=east,pose=0,skin=3": {"model": "neospuppets:block/bopboyma/sitting","y": 90},
+    "facing=south,pose=0,skin=3": {"model": "neospuppets:block/bopboyma/sitting","y": 180},
+    "facing=west,pose=0,skin=3": {"model": "neospuppets:block/bopboyma/sitting","y": 270},
+
+    "facing=north,pose=0,skin=4": {"model": "neospuppets:block/pixelmademess/sitting"},
+    "facing=east,pose=0,skin=4": {"model": "neospuppets:block/pixelmademess/sitting","y": 90},
+    "facing=south,pose=0,skin=4": {"model": "neospuppets:block/pixelmademess/sitting","y": 180},
+    "facing=west,pose=0,skin=4": {"model": "neospuppets:block/pixelmademess/sitting","y": 270},
+
+    "facing=north,pose=0,skin=5": {"model": "neospuppets:block/steve/sitting"},
+    "facing=east,pose=0,skin=5": {"model": "neospuppets:block/steve/sitting","y": 90},
+    "facing=south,pose=0,skin=5": {"model": "neospuppets:block/steve/sitting","y": 180},
+    "facing=west,pose=0,skin=5": {"model": "neospuppets:block/steve/sitting","y": 270},
+
+    "facing=north,pose=0,skin=6": {"model": "neospuppets:block/alex/sitting"},
+    "facing=east,pose=0,skin=6": {"model": "neospuppets:block/alex/sitting","y": 90},
+    "facing=south,pose=0,skin=6": {"model": "neospuppets:block/alex/sitting","y": 180},
+    "facing=west,pose=0,skin=6": {"model": "neospuppets:block/alex/sitting","y": 270},
+
+
+    "facing=north,pose=1,skin=puppet": {"model": "neospuppets:block/puppet/standing"},
+    "facing=east,pose=1,skin=puppet": {"model": "neospuppets:block/puppet/standing","y": 90},
+    "facing=south,pose=1,skin=puppet": {"model": "neospuppets:block/puppet/standing","y": 180},
+    "facing=west,pose=1,skin=puppet": {"model": "neospuppets:block/puppet/standing","y": 270},
+
+    "facing=north,pose=1,skin=1": {"model": "neospuppets:block/neoloxal/standing"},
+    "facing=east,pose=1,skin=1": {"model": "neospuppets:block/neoloxal/standing","y": 90},
+    "facing=south,pose=1,skin=1": {"model": "neospuppets:block/neoloxal/standing","y": 180},
+    "facing=west,pose=1,skin=1": {"model": "neospuppets:block/neoloxal/standing","y": 270},
+
+    "facing=north,pose=1,skin=2": {"model": "neospuppets:block/business_neoloxal/standing"},
+    "facing=east,pose=1,skin=2": {"model": "neospuppets:block/business_neoloxal/standing","y": 90},
+    "facing=south,pose=1,skin=2": {"model": "neospuppets:block/business_neoloxal/standing","y": 180},
+    "facing=west,pose=1,skin=2": {"model": "neospuppets:block/business_neoloxal/standing","y": 270},
+
+    "facing=north,pose=1,skin=3": {"model": "neospuppets:block/bopboyma/standing"},
+    "facing=east,pose=1,skin=3": {"model": "neospuppets:block/bopboyma/standing","y": 90},
+    "facing=south,pose=1,skin=3": {"model": "neospuppets:block/bopboyma/standing","y": 180},
+    "facing=west,pose=1,skin=3": {"model": "neospuppets:block/bopboyma/standing","y": 270},
+
+    "facing=north,pose=1,skin=4": {"model": "neospuppets:block/pixelmademess/standing"},
+    "facing=east,pose=1,skin=4": {"model": "neospuppets:block/pixelmademess/standing","y": 90},
+    "facing=south,pose=1,skin=4": {"model": "neospuppets:block/pixelmademess/standing","y": 180},
+    "facing=west,pose=1,skin=4": {"model": "neospuppets:block/pixelmademess/standing","y": 270},
+
+    "facing=north,pose=1,skin=5": {"model": "neospuppets:block/steve/standing"},
+    "facing=east,pose=1,skin=5": {"model": "neospuppets:block/steve/standing","y": 90},
+    "facing=south,pose=1,skin=5": {"model": "neospuppets:block/steve/standing","y": 180},
+    "facing=west,pose=1,skin=5": {"model": "neospuppets:block/steve/standing","y": 270},
+
+    "facing=north,pose=1,skin=6": {"model": "neospuppets:block/alex/standing"},
+    "facing=east,pose=1,skin=6": {"model": "neospuppets:block/alex/standing","y": 90},
+    "facing=south,pose=1,skin=6": {"model": "neospuppets:block/alex/standing","y": 180},
+    "facing=west,pose=1,skin=6": {"model": "neospuppets:block/alex/standing","y": 270},
+
+
+    "facing=north,pose=2,skin=puppet": {"model": "neospuppets:block/puppet/waving"},
+    "facing=east,pose=2,skin=puppet": {"model": "neospuppets:block/puppet/waving","y": 90},
+    "facing=south,pose=2,skin=puppet": {"model": "neospuppets:block/puppet/waving","y": 180},
+    "facing=west,pose=2,skin=puppet": {"model": "neospuppets:block/puppet/waving","y": 270},
+
+    "facing=north,pose=2,skin=1": {"model": "neospuppets:block/neoloxal/waving"},
+    "facing=east,pose=2,skin=1": {"model": "neospuppets:block/neoloxal/waving","y": 90},
+    "facing=south,pose=2,skin=1": {"model": "neospuppets:block/neoloxal/waving","y": 180},
+    "facing=west,pose=2,skin=1": {"model": "neospuppets:block/neoloxal/waving","y": 270},
+
+    "facing=north,pose=2,skin=2": {"model": "neospuppets:block/business_neoloxal/waving"},
+    "facing=east,pose=2,skin=2": {"model": "neospuppets:block/business_neoloxal/waving","y": 90},
+    "facing=south,pose=2,skin=2": {"model": "neospuppets:block/business_neoloxal/waving","y": 180},
+    "facing=west,pose=2,skin=2": {"model": "neospuppets:block/business_neoloxal/waving","y": 270},
+
+    "facing=north,pose=2,skin=3": {"model": "neospuppets:block/bopboyma/waving"},
+    "facing=east,pose=2,skin=3": {"model": "neospuppets:block/bopboyma/waving","y": 90},
+    "facing=south,pose=2,skin=3": {"model": "neospuppets:block/bopboyma/waving","y": 180},
+    "facing=west,pose=2,skin=3": {"model": "neospuppets:block/bopboyma/waving","y": 270},
+
+    "facing=north,pose=2,skin=4": {"model": "neospuppets:block/pixelmademess/waving"},
+    "facing=east,pose=2,skin=4": {"model": "neospuppets:block/pixelmademess/waving","y": 90},
+    "facing=south,pose=2,skin=4": {"model": "neospuppets:block/pixelmademess/waving","y": 180},
+    "facing=west,pose=2,skin=4": {"model": "neospuppets:block/pixelmademess/waving","y": 270},
+
+    "facing=north,pose=2,skin=5": {"model": "neospuppets:block/steve/waving"},
+    "facing=east,pose=2,skin=5": {"model": "neospuppets:block/steve/waving","y": 90},
+    "facing=south,pose=2,skin=5": {"model": "neospuppets:block/steve/waving","y": 180},
+    "facing=west,pose=2,skin=5": {"model": "neospuppets:block/steve/waving","y": 270},
+
+    "facing=north,pose=2,skin=6": {"model": "neospuppets:block/alex/waving"},
+    "facing=east,pose=2,skin=6": {"model": "neospuppets:block/alex/waving","y": 90},
+    "facing=south,pose=2,skin=6": {"model": "neospuppets:block/alex/waving","y": 180},
+    "facing=west,pose=2,skin=6": {"model": "neospuppets:block/alex/waving","y": 270},
+
+
+    "facing=north,pose=3,skin=puppet": {"model": "neospuppets:block/puppet/pointing"},
+    "facing=east,pose=3,skin=puppet": {"model": "neospuppets:block/puppet/pointing","y": 90},
+    "facing=south,pose=3,skin=puppet": {"model": "neospuppets:block/puppet/pointing","y": 180},
+    "facing=west,pose=3,skin=puppet": {"model": "neospuppets:block/puppet/pointing","y": 270},
+
+    "facing=north,pose=3,skin=1": {"model": "neospuppets:block/neoloxal/pointing"},
+    "facing=east,pose=3,skin=1": {"model": "neospuppets:block/neoloxal/pointing","y": 90},
+    "facing=south,pose=3,skin=1": {"model": "neospuppets:block/neoloxal/pointing","y": 180},
+    "facing=west,pose=3,skin=1": {"model": "neospuppets:block/neoloxal/pointing","y": 270},
+
+    "facing=north,pose=3,skin=2": {"model": "neospuppets:block/business_neoloxal/pointing"},
+    "facing=east,pose=3,skin=2": {"model": "neospuppets:block/business_neoloxal/pointing","y": 90},
+    "facing=south,pose=3,skin=2": {"model": "neospuppets:block/business_neoloxal/pointing","y": 180},
+    "facing=west,pose=3,skin=2": {"model": "neospuppets:block/business_neoloxal/pointing","y": 270},
+
+    "facing=north,pose=3,skin=4": {"model": "neospuppets:block/pixelmademess/pointing"},
+    "facing=east,pose=3,skin=4": {"model": "neospuppets:block/pixelmademess/pointing","y": 90},
+    "facing=south,pose=3,skin=4": {"model": "neospuppets:block/pixelmademess/pointing","y": 180},
+    "facing=west,pose=3,skin=4": {"model": "neospuppets:block/pixelmademess/pointing","y": 270},
+
+    "facing=north,pose=3,skin=5": {"model": "neospuppets:block/steve/pointing"},
+    "facing=east,pose=3,skin=5": {"model": "neospuppets:block/steve/pointing","y": 90},
+    "facing=south,pose=3,skin=5": {"model": "neospuppets:block/steve/pointing","y": 180},
+    "facing=west,pose=3,skin=5": {"model": "neospuppets:block/steve/pointing","y": 270},
+
+    "facing=north,pose=3,skin=6": {"model": "neospuppets:block/alex/pointing"},
+    "facing=east,pose=3,skin=6": {"model": "neospuppets:block/alex/pointing","y": 90},
+    "facing=south,pose=3,skin=6": {"model": "neospuppets:block/alex/pointing","y": 180},
+    "facing=west,pose=3,skin=6": {"model": "neospuppets:block/alex/pointing","y": 270},
+
+    "facing=north,pose=3,skin=3": {"model": "neospuppets:block/bopboyma/pointing"},
+    "facing=east,pose=3,skin=3": {"model": "neospuppets:block/bopboyma/pointing","y": 90},
+    "facing=south,pose=3,skin=3": {"model": "neospuppets:block/bopboyma/pointing","y": 180},
+    "facing=west,pose=3,skin=3": {"model": "neospuppets:block/bopboyma/pointing","y": 270},
+
+
+    "facing=north,pose=4,skin=puppet": {"model": "neospuppets:block/puppet/sad"},
+    "facing=east,pose=4,skin=puppet": {"model": "neospuppets:block/puppet/sad","y": 90},
+    "facing=south,pose=4,skin=puppet": {"model": "neospuppets:block/puppet/sad","y": 180},
+    "facing=west,pose=4,skin=puppet": {"model": "neospuppets:block/puppet/sad","y": 270},
+
+    "facing=north,pose=4,skin=1": {"model": "neospuppets:block/neoloxal/sad"},
+    "facing=east,pose=4,skin=1": {"model": "neospuppets:block/neoloxal/sad","y": 90},
+    "facing=south,pose=4,skin=1": {"model": "neospuppets:block/neoloxal/sad","y": 180},
+    "facing=west,pose=4,skin=1": {"model": "neospuppets:block/neoloxal/sad","y": 270},
+
+    "facing=north,pose=4,skin=2": {"model": "neospuppets:block/business_neoloxal/sad"},
+    "facing=east,pose=4,skin=2": {"model": "neospuppets:block/business_neoloxal/sad","y": 90},
+    "facing=south,pose=4,skin=2": {"model": "neospuppets:block/business_neoloxal/sad","y": 180},
+    "facing=west,pose=4,skin=2": {"model": "neospuppets:block/business_neoloxal/sad","y": 270},
+
+    "facing=north,pose=4,skin=3": {"model": "neospuppets:block/bopboyma/sad"},
+    "facing=east,pose=4,skin=3": {"model": "neospuppets:block/bopboyma/sad","y": 90},
+    "facing=south,pose=4,skin=3": {"model": "neospuppets:block/bopboyma/sad","y": 180},
+    "facing=west,pose=4,skin=3": {"model": "neospuppets:block/bopboyma/sad","y": 270},
+
+    "facing=north,pose=4,skin=4": {"model": "neospuppets:block/pixelmademess/sad"},
+    "facing=east,pose=4,skin=4": {"model": "neospuppets:block/pixelmademess/sad","y": 90},
+    "facing=south,pose=4,skin=4": {"model": "neospuppets:block/pixelmademess/sad","y": 180},
+    "facing=west,pose=4,skin=4": {"model": "neospuppets:block/pixelmademess/sad","y": 270},
+
+    "facing=north,pose=4,skin=5": {"model": "neospuppets:block/steve/sad"},
+    "facing=east,pose=4,skin=5": {"model": "neospuppets:block/steve/sad","y": 90},
+    "facing=south,pose=4,skin=5": {"model": "neospuppets:block/steve/sad","y": 180},
+    "facing=west,pose=4,skin=5": {"model": "neospuppets:block/steve/sad","y": 270},
+
+    "facing=north,pose=4,skin=6": {"model": "neospuppets:block/alex/sad"},
+    "facing=east,pose=4,skin=6": {"model": "neospuppets:block/alex/sad","y": 90},
+    "facing=south,pose=4,skin=6": {"model": "neospuppets:block/alex/sad","y": 180},
+    "facing=west,pose=4,skin=6": {"model": "neospuppets:block/alex/sad","y": 270},
+
+
+    "facing=north,pose=5,skin=puppet": {"model": "neospuppets:block/puppet/laying"},
+    "facing=east,pose=5,skin=puppet": {"model": "neospuppets:block/puppet/laying","y": 90},
+    "facing=south,pose=5,skin=puppet": {"model": "neospuppets:block/puppet/laying","y": 180},
+    "facing=west,pose=5,skin=puppet": {"model": "neospuppets:block/puppet/laying","y": 270},
+
+    "facing=north,pose=5,skin=1": {"model": "neospuppets:block/neoloxal/laying"},
+    "facing=east,pose=5,skin=1": {"model": "neospuppets:block/neoloxal/laying","y": 90},
+    "facing=south,pose=5,skin=1": {"model": "neospuppets:block/neoloxal/laying","y": 180},
+    "facing=west,pose=5,skin=1": {"model": "neospuppets:block/neoloxal/laying","y": 270},
+
+    "facing=north,pose=5,skin=2": {"model": "neospuppets:block/business_neoloxal/laying"},
+    "facing=east,pose=5,skin=2": {"model": "neospuppets:block/business_neoloxal/laying","y": 90},
+    "facing=south,pose=5,skin=2": {"model": "neospuppets:block/business_neoloxal/laying","y": 180},
+    "facing=west,pose=5,skin=2": {"model": "neospuppets:block/business_neoloxal/laying","y": 270},
+
+    "facing=north,pose=5,skin=3": {"model": "neospuppets:block/bopboyma/laying"},
+    "facing=east,pose=5,skin=3": {"model": "neospuppets:block/bopboyma/laying","y": 90},
+    "facing=south,pose=5,skin=3": {"model": "neospuppets:block/bopboyma/laying","y": 180},
+    "facing=west,pose=5,skin=3": {"model": "neospuppets:block/bopboyma/laying","y": 270},
+
+    "facing=north,pose=5,skin=4": {"model": "neospuppets:block/pixelmademess/laying"},
+    "facing=east,pose=5,skin=4": {"model": "neospuppets:block/pixelmademess/laying","y": 90},
+    "facing=south,pose=5,skin=4": {"model": "neospuppets:block/pixelmademess/laying","y": 180},
+    "facing=west,pose=5,skin=4": {"model": "neospuppets:block/pixelmademess/laying","y": 270},
+
+    "facing=north,pose=5,skin=5": {"model": "neospuppets:block/steve/laying"},
+    "facing=east,pose=5,skin=5": {"model": "neospuppets:block/steve/laying","y": 90},
+    "facing=south,pose=5,skin=5": {"model": "neospuppets:block/steve/laying","y": 180},
+    "facing=west,pose=5,skin=5": {"model": "neospuppets:block/steve/laying","y": 270},
+
+    "facing=north,pose=5,skin=6": {"model": "neospuppets:block/alex/laying"},
+    "facing=east,pose=5,skin=6": {"model": "neospuppets:block/alex/laying","y": 90},
+    "facing=south,pose=5,skin=6": {"model": "neospuppets:block/alex/laying","y": 180},
+    "facing=west,pose=5,skin=6": {"model": "neospuppets:block/alex/laying","y": 270},
+
+
+    "facing=north,pose=6,skin=puppet": {"model": "neospuppets:block/puppet/t_posing"},
+    "facing=east,pose=6,skin=puppet": {"model": "neospuppets:block/puppet/t_posing","y": 90},
+    "facing=south,pose=6,skin=puppet": {"model": "neospuppets:block/puppet/t_posing","y": 180},
+    "facing=west,pose=6,skin=puppet": {"model": "neospuppets:block/puppet/t_posing","y": 270},
+
+    "facing=north,pose=6,skin=1": {"model": "neospuppets:block/neoloxal/t_posing"},
+    "facing=east,pose=6,skin=1": {"model": "neospuppets:block/neoloxal/t_posing","y": 90},
+    "facing=south,pose=6,skin=1": {"model": "neospuppets:block/neoloxal/t_posing","y": 180},
+    "facing=west,pose=6,skin=1": {"model": "neospuppets:block/neoloxal/t_posing","y": 270},
+
+    "facing=north,pose=6,skin=2": {"model": "neospuppets:block/business_neoloxal/t_posing"},
+    "facing=east,pose=6,skin=2": {"model": "neospuppets:block/business_neoloxal/t_posing","y": 90},
+    "facing=south,pose=6,skin=2": {"model": "neospuppets:block/business_neoloxal/t_posing","y": 180},
+    "facing=west,pose=6,skin=2": {"model": "neospuppets:block/business_neoloxal/t_posing","y": 270},
+
+    "facing=north,pose=6,skin=3": {"model": "neospuppets:block/bopboyma/t_posing"},
+    "facing=east,pose=6,skin=3": {"model": "neospuppets:block/bopboyma/t_posing","y": 90},
+    "facing=south,pose=6,skin=3": {"model": "neospuppets:block/bopboyma/t_posing","y": 180},
+    "facing=west,pose=6,skin=3": {"model": "neospuppets:block/bopboyma/t_posing","y": 270},
+
+    "facing=north,pose=6,skin=4": {"model": "neospuppets:block/pixelmademess/t_posing"},
+    "facing=east,pose=6,skin=4": {"model": "neospuppets:block/pixelmademess/t_posing","y": 90},
+    "facing=south,pose=6,skin=4": {"model": "neospuppets:block/pixelmademess/t_posing","y": 180},
+    "facing=west,pose=6,skin=4": {"model": "neospuppets:block/pixelmademess/t_posing","y": 270},
+
+    "facing=north,pose=6,skin=5": {"model": "neospuppets:block/steve/t_posing"},
+    "facing=east,pose=6,skin=5": {"model": "neospuppets:block/steve/t_posing","y": 90},
+    "facing=south,pose=6,skin=5": {"model": "neospuppets:block/steve/t_posing","y": 180},
+    "facing=west,pose=6,skin=5": {"model": "neospuppets:block/steve/t_posing","y": 270},
+
+    "facing=north,pose=6,skin=6": {"model": "neospuppets:block/alex/t_posing"},
+    "facing=east,pose=6,skin=6": {"model": "neospuppets:block/alex/t_posing","y": 90},
+    "facing=south,pose=6,skin=6": {"model": "neospuppets:block/alex/t_posing","y": 180},
+    "facing=west,pose=6,skin=6": {"model": "neospuppets:block/alex/t_posing","y": 270},
+
+
+    "facing=north,pose=7,skin=puppet": {"model": "neospuppets:block/puppet/jumping"},
+    "facing=east,pose=7,skin=puppet": {"model": "neospuppets:block/puppet/jumping","y": 90},
+    "facing=south,pose=7,skin=puppet": {"model": "neospuppets:block/puppet/jumping","y": 180},
+    "facing=west,pose=7,skin=puppet": {"model": "neospuppets:block/puppet/jumping","y": 270},
+
+    "facing=north,pose=7,skin=1": {"model": "neospuppets:block/neoloxal/jumping"},
+    "facing=east,pose=7,skin=1": {"model": "neospuppets:block/neoloxal/jumping","y": 90},
+    "facing=south,pose=7,skin=1": {"model": "neospuppets:block/neoloxal/jumping","y": 180},
+    "facing=west,pose=7,skin=1": {"model": "neospuppets:block/neoloxal/jumping","y": 270},
+
+    "facing=north,pose=7,skin=2": {"model": "neospuppets:block/business_neoloxal/jumping"},
+    "facing=east,pose=7,skin=2": {"model": "neospuppets:block/business_neoloxal/jumping","y": 90},
+    "facing=south,pose=7,skin=2": {"model": "neospuppets:block/business_neoloxal/jumping","y": 180},
+    "facing=west,pose=7,skin=2": {"model": "neospuppets:block/business_neoloxal/jumping","y": 270},
+
+    "facing=north,pose=7,skin=3": {"model": "neospuppets:block/bopboyma/jumping"},
+    "facing=east,pose=7,skin=3": {"model": "neospuppets:block/bopboyma/jumping","y": 90},
+    "facing=south,pose=7,skin=3": {"model": "neospuppets:block/bopboyma/jumping","y": 180},
+    "facing=west,pose=7,skin=3": {"model": "neospuppets:block/bopboyma/jumping","y": 270},
+
+    "facing=north,pose=7,skin=4": {"model": "neospuppets:block/pixelmademess/jumping"},
+    "facing=east,pose=7,skin=4": {"model": "neospuppets:block/pixelmademess/jumping","y": 90},
+    "facing=south,pose=7,skin=4": {"model": "neospuppets:block/pixelmademess/jumping","y": 180},
+    "facing=west,pose=7,skin=4": {"model": "neospuppets:block/pixelmademess/jumping","y": 270},
+
+    "facing=north,pose=7,skin=5": {"model": "neospuppets:block/steve/jumping"},
+    "facing=east,pose=7,skin=5": {"model": "neospuppets:block/steve/jumping","y": 90},
+    "facing=south,pose=7,skin=5": {"model": "neospuppets:block/steve/jumping","y": 180},
+    "facing=west,pose=7,skin=5": {"model": "neospuppets:block/steve/jumping","y": 270},
+
+    "facing=north,pose=7,skin=6": {"model": "neospuppets:block/alex/jumping"},
+    "facing=east,pose=7,skin=6": {"model": "neospuppets:block/alex/jumping","y": 90},
+    "facing=south,pose=7,skin=6": {"model": "neospuppets:block/alex/jumping","y": 180},
+    "facing=west,pose=7,skin=6": {"model": "neospuppets:block/alex/jumping","y": 270},
+
+
+    "facing=north,pose=8,skin=puppet": {"model": "neospuppets:block/puppet/jarona"},
+    "facing=east,pose=8,skin=puppet": {"model": "neospuppets:block/puppet/jarona","y": 90},
+    "facing=south,pose=8,skin=puppet": {"model": "neospuppets:block/puppet/jarona","y": 180},
+    "facing=west,pose=8,skin=puppet": {"model": "neospuppets:block/puppet/jarona","y": 270},
+
+    "facing=north,pose=8,skin=1": {"model": "neospuppets:block/neoloxal/jarona"},
+    "facing=east,pose=8,skin=1": {"model": "neospuppets:block/neoloxal/jarona","y": 90},
+    "facing=south,pose=8,skin=1": {"model": "neospuppets:block/neoloxal/jarona","y": 180},
+    "facing=west,pose=8,skin=1": {"model": "neospuppets:block/neoloxal/jarona","y": 270},
+
+    "facing=north,pose=8,skin=2": {"model": "neospuppets:block/business_neoloxal/jarona"},
+    "facing=east,pose=8,skin=2": {"model": "neospuppets:block/business_neoloxal/jarona","y": 90},
+    "facing=south,pose=8,skin=2": {"model": "neospuppets:block/business_neoloxal/jarona","y": 180},
+    "facing=west,pose=8,skin=2": {"model": "neospuppets:block/business_neoloxal/jarona","y": 270},
+
+    "facing=north,pose=8,skin=3": {"model": "neospuppets:block/bopboyma/jarona"},
+    "facing=east,pose=8,skin=3": {"model": "neospuppets:block/bopboyma/jarona","y": 90},
+    "facing=south,pose=8,skin=3": {"model": "neospuppets:block/bopboyma/jarona","y": 180},
+    "facing=west,pose=8,skin=3": {"model": "neospuppets:block/bopboyma/jarona","y": 270},
+
+    "facing=north,pose=8,skin=4": {"model": "neospuppets:block/pixelmademess/jarona"},
+    "facing=east,pose=8,skin=4": {"model": "neospuppets:block/pixelmademess/jarona","y": 90},
+    "facing=south,pose=8,skin=4": {"model": "neospuppets:block/pixelmademess/jarona","y": 180},
+    "facing=west,pose=8,skin=4": {"model": "neospuppets:block/pixelmademess/jarona","y": 270},
+
+    "facing=north,pose=8,skin=5": {"model": "neospuppets:block/steve/jarona"},
+    "facing=east,pose=8,skin=5": {"model": "neospuppets:block/steve/jarona","y": 90},
+    "facing=south,pose=8,skin=5": {"model": "neospuppets:block/steve/jarona","y": 180},
+    "facing=west,pose=8,skin=5": {"model": "neospuppets:block/steve/jarona","y": 270},
+
+    "facing=north,pose=8,skin=6": {"model": "neospuppets:block/alex/jarona"},
+    "facing=east,pose=8,skin=6": {"model": "neospuppets:block/alex/jarona","y": 90},
+    "facing=south,pose=8,skin=6": {"model": "neospuppets:block/alex/jarona","y": 180},
+    "facing=west,pose=8,skin=6": {"model": "neospuppets:block/alex/jarona","y": 270},
+
+
+    "facing=north,pose=9,skin=puppet": {"model": "neospuppets:block/puppet/horse"},
+    "facing=east,pose=9,skin=puppet": {"model": "neospuppets:block/puppet/horse","y": 90},
+    "facing=south,pose=9,skin=puppet": {"model": "neospuppets:block/puppet/horse","y": 180},
+    "facing=west,pose=9,skin=puppet": {"model": "neospuppets:block/puppet/horse","y": 270},
+
+    "facing=north,pose=9,skin=1": {"model": "neospuppets:block/neoloxal/horse"},
+    "facing=east,pose=9,skin=1": {"model": "neospuppets:block/neoloxal/horse","y": 90},
+    "facing=south,pose=9,skin=1": {"model": "neospuppets:block/neoloxal/horse","y": 180},
+    "facing=west,pose=9,skin=1": {"model": "neospuppets:block/neoloxal/horse","y": 270},
+
+    "facing=north,pose=9,skin=2": {"model": "neospuppets:block/business_neoloxal/horse"},
+    "facing=east,pose=9,skin=2": {"model": "neospuppets:block/business_neoloxal/horse","y": 90},
+    "facing=south,pose=9,skin=2": {"model": "neospuppets:block/business_neoloxal/horse","y": 180},
+    "facing=west,pose=9,skin=2": {"model": "neospuppets:block/business_neoloxal/horse","y": 270},
+
+    "facing=north,pose=9,skin=3": {"model": "neospuppets:block/bopboyma/horse"},
+    "facing=east,pose=9,skin=3": {"model": "neospuppets:block/bopboyma/horse","y": 90},
+    "facing=south,pose=9,skin=3": {"model": "neospuppets:block/bopboyma/horse","y": 180},
+    "facing=west,pose=9,skin=3": {"model": "neospuppets:block/bopboyma/horse","y": 270},
+
+    "facing=north,pose=9,skin=4": {"model": "neospuppets:block/pixelmademess/horse"},
+    "facing=east,pose=9,skin=4": {"model": "neospuppets:block/pixelmademess/horse","y": 90},
+    "facing=south,pose=9,skin=4": {"model": "neospuppets:block/pixelmademess/horse","y": 180},
+    "facing=west,pose=9,skin=4": {"model": "neospuppets:block/pixelmademess/horse","y": 270},
+
+    "facing=north,pose=9,skin=5": {"model": "neospuppets:block/steve/horse"},
+    "facing=east,pose=9,skin=5": {"model": "neospuppets:block/steve/horse","y": 90},
+    "facing=south,pose=9,skin=5": {"model": "neospuppets:block/steve/horse","y": 180},
+    "facing=west,pose=9,skin=5": {"model": "neospuppets:block/steve/horse","y": 270},
+
+    "facing=north,pose=9,skin=6": {"model": "neospuppets:block/alex/horse"},
+    "facing=east,pose=9,skin=6": {"model": "neospuppets:block/alex/horse","y": 90},
+    "facing=south,pose=9,skin=6": {"model": "neospuppets:block/alex/horse","y": 180},
+    "facing=west,pose=9,skin=6": {"model": "neospuppets:block/alex/horse","y": 270},
+
+
+    "facing=north,pose=10,skin=puppet": {"model": "neospuppets:block/puppet/praying"},
+    "facing=east,pose=10,skin=puppet": {"model": "neospuppets:block/puppet/praying","y": 90},
+    "facing=south,pose=10,skin=puppet": {"model": "neospuppets:block/puppet/praying","y": 180},
+    "facing=west,pose=10,skin=puppet": {"model": "neospuppets:block/puppet/praying","y": 270},
+
+    "facing=north,pose=10,skin=1": {"model": "neospuppets:block/neoloxal/praying"},
+    "facing=east,pose=10,skin=1": {"model": "neospuppets:block/neoloxal/praying","y": 90},
+    "facing=south,pose=10,skin=1": {"model": "neospuppets:block/neoloxal/praying","y": 180},
+    "facing=west,pose=10,skin=1": {"model": "neospuppets:block/neoloxal/praying","y": 270},
+
+    "facing=north,pose=10,skin=2": {"model": "neospuppets:block/business_neoloxal/praying"},
+    "facing=east,pose=10,skin=2": {"model": "neospuppets:block/business_neoloxal/praying","y": 90},
+    "facing=south,pose=10,skin=2": {"model": "neospuppets:block/business_neoloxal/praying","y": 180},
+    "facing=west,pose=10,skin=2": {"model": "neospuppets:block/business_neoloxal/praying","y": 270},
+
+    "facing=north,pose=10,skin=3": {"model": "neospuppets:block/bopboyma/praying"},
+    "facing=east,pose=10,skin=3": {"model": "neospuppets:block/bopboyma/praying","y": 90},
+    "facing=south,pose=10,skin=3": {"model": "neospuppets:block/bopboyma/praying","y": 180},
+    "facing=west,pose=10,skin=3": {"model": "neospuppets:block/bopboyma/praying","y": 270},
+
+    "facing=north,pose=10,skin=4": {"model": "neospuppets:block/pixelmademess/praying"},
+    "facing=east,pose=10,skin=4": {"model": "neospuppets:block/pixelmademess/praying","y": 90},
+    "facing=south,pose=10,skin=4": {"model": "neospuppets:block/pixelmademess/praying","y": 180},
+    "facing=west,pose=10,skin=4": {"model": "neospuppets:block/pixelmademess/praying","y": 270},
+
+    "facing=north,pose=10,skin=5": {"model": "neospuppets:block/steve/praying"},
+    "facing=east,pose=10,skin=5": {"model": "neospuppets:block/steve/praying","y": 90},
+    "facing=south,pose=10,skin=5": {"model": "neospuppets:block/steve/praying","y": 180},
+    "facing=west,pose=10,skin=5": {"model": "neospuppets:block/steve/praying","y": 270},
+
+    "facing=north,pose=10,skin=6": {"model": "neospuppets:block/alex/praying"},
+    "facing=east,pose=10,skin=6": {"model": "neospuppets:block/alex/praying","y": 90},
+    "facing=south,pose=10,skin=6": {"model": "neospuppets:block/alex/praying","y": 180},
+    "facing=west,pose=10,skin=6": {"model": "neospuppets:block/alex/praying","y": 270},
+
+
+    "facing=north,pose=11,skin=puppet": {"model": "neospuppets:block/puppet/crying"},
+    "facing=east,pose=11,skin=puppet": {"model": "neospuppets:block/puppet/crying","y": 90},
+    "facing=south,pose=11,skin=puppet": {"model": "neospuppets:block/puppet/crying","y": 180},
+    "facing=west,pose=11,skin=puppet": {"model": "neospuppets:block/puppet/crying","y": 270},
+
+    "facing=north,pose=11,skin=1": {"model": "neospuppets:block/neoloxal/crying"},
+    "facing=east,pose=11,skin=1": {"model": "neospuppets:block/neoloxal/crying","y": 90},
+    "facing=south,pose=11,skin=1": {"model": "neospuppets:block/neoloxal/crying","y": 180},
+    "facing=west,pose=11,skin=1": {"model": "neospuppets:block/neoloxal/crying","y": 270},
+
+    "facing=north,pose=11,skin=2": {"model": "neospuppets:block/business_neoloxal/crying"},
+    "facing=east,pose=11,skin=2": {"model": "neospuppets:block/business_neoloxal/crying","y": 90},
+    "facing=south,pose=11,skin=2": {"model": "neospuppets:block/business_neoloxal/crying","y": 180},
+    "facing=west,pose=11,skin=2": {"model": "neospuppets:block/business_neoloxal/crying","y": 270},
+
+    "facing=north,pose=11,skin=3": {"model": "neospuppets:block/bopboyma/crying"},
+    "facing=east,pose=11,skin=3": {"model": "neospuppets:block/bopboyma/crying","y": 90},
+    "facing=south,pose=11,skin=3": {"model": "neospuppets:block/bopboyma/crying","y": 180},
+    "facing=west,pose=11,skin=3": {"model": "neospuppets:block/bopboyma/crying","y": 270},
+
+    "facing=north,pose=11,skin=4": {"model": "neospuppets:block/pixelmademess/crying"},
+    "facing=east,pose=11,skin=4": {"model": "neospuppets:block/pixelmademess/crying","y": 90},
+    "facing=south,pose=11,skin=4": {"model": "neospuppets:block/pixelmademess/crying","y": 180},
+    "facing=west,pose=11,skin=4": {"model": "neospuppets:block/pixelmademess/crying","y": 270},
+
+    "facing=north,pose=11,skin=5": {"model": "neospuppets:block/steve/crying"},
+    "facing=east,pose=11,skin=5": {"model": "neospuppets:block/steve/crying","y": 90},
+    "facing=south,pose=11,skin=5": {"model": "neospuppets:block/steve/crying","y": 180},
+    "facing=west,pose=11,skin=5": {"model": "neospuppets:block/steve/crying","y": 270},
+
+    "facing=north,pose=11,skin=6": {"model": "neospuppets:block/alex/crying"},
+    "facing=east,pose=11,skin=6": {"model": "neospuppets:block/alex/crying","y": 90},
+    "facing=south,pose=11,skin=6": {"model": "neospuppets:block/alex/crying","y": 180},
+    "facing=west,pose=11,skin=6": {"model": "neospuppets:block/alex/crying","y": 270},
+
+
+    "facing=north,pose=12,skin=puppet": {"model": "neospuppets:block/puppet/floating"},
+    "facing=east,pose=12,skin=puppet": {"model": "neospuppets:block/puppet/floating","y": 90},
+    "facing=south,pose=12,skin=puppet": {"model": "neospuppets:block/puppet/floating","y": 180},
+    "facing=west,pose=12,skin=puppet": {"model": "neospuppets:block/puppet/floating","y": 270},
+    "facing=north,pose=12,skin=1": {"model": "neospuppets:block/neoloxal/floating"},
+    "facing=east,pose=12,skin=1": {"model": "neospuppets:block/neoloxal/floating","y": 90},
+    "facing=south,pose=12,skin=1": {"model": "neospuppets:block/neoloxal/floating","y": 180},
+    "facing=west,pose=12,skin=1": {"model": "neospuppets:block/neoloxal/floating","y": 270},
+
+    "facing=north,pose=12,skin=2": {"model": "neospuppets:block/business_neoloxal/floating"},
+    "facing=east,pose=12,skin=2": {"model": "neospuppets:block/business_neoloxal/floating","y": 90},
+    "facing=south,pose=12,skin=2": {"model": "neospuppets:block/business_neoloxal/floating","y": 180},
+    "facing=west,pose=12,skin=2": {"model": "neospuppets:block/business_neoloxal/floating","y": 270},
+
+    "facing=north,pose=12,skin=3": {"model": "neospuppets:block/bopboyma/floating"},
+    "facing=east,pose=12,skin=3": {"model": "neospuppets:block/bopboyma/floating","y": 90},
+    "facing=south,pose=12,skin=3": {"model": "neospuppets:block/bopboyma/floating","y": 180},
+    "facing=west,pose=12,skin=3": {"model": "neospuppets:block/bopboyma/floating","y": 270},
+
+    "facing=north,pose=12,skin=4": {"model": "neospuppets:block/pixelmademess/floating"},
+    "facing=east,pose=12,skin=4": {"model": "neospuppets:block/pixelmademess/floating","y": 90},
+    "facing=south,pose=12,skin=4": {"model": "neospuppets:block/pixelmademess/floating","y": 180},
+    "facing=west,pose=12,skin=4": {"model": "neospuppets:block/pixelmademess/floating","y": 270},
+
+    "facing=north,pose=12,skin=5": {"model": "neospuppets:block/steve/floating"},
+    "facing=east,pose=12,skin=5": {"model": "neospuppets:block/steve/floating","y": 90},
+    "facing=south,pose=12,skin=5": {"model": "neospuppets:block/steve/floating","y": 180},
+    "facing=west,pose=12,skin=5": {"model": "neospuppets:block/steve/floating","y": 270},
+
+    "facing=north,pose=12,skin=6": {"model": "neospuppets:block/alex/floating"},
+    "facing=east,pose=12,skin=6": {"model": "neospuppets:block/alex/floating","y": 90},
+    "facing=south,pose=12,skin=6": {"model": "neospuppets:block/alex/floating","y": 180},
+    "facing=west,pose=12,skin=6": {"model": "neospuppets:block/alex/floating","y": 270},
+
+
+    "facing=north,pose=13,skin=puppet": {"model": "neospuppets:block/puppet/face_planting"},
+    "facing=east,pose=13,skin=puppet": {"model": "neospuppets:block/puppet/face_planting","y": 90},
+    "facing=south,pose=13,skin=puppet": {"model": "neospuppets:block/puppet/face_planting","y": 180},
+    "facing=west,pose=13,skin=puppet": {"model": "neospuppets:block/puppet/face_planting","y": 270},
+
+    "facing=north,pose=13,skin=1": {"model": "neospuppets:block/neoloxal/face_planting"},
+    "facing=east,pose=13,skin=1": {"model": "neospuppets:block/neoloxal/face_planting","y": 90},
+    "facing=south,pose=13,skin=1": {"model": "neospuppets:block/neoloxal/face_planting","y": 180},
+    "facing=west,pose=13,skin=1": {"model": "neospuppets:block/neoloxal/face_planting","y": 270},
+
+    "facing=north,pose=13,skin=2": {"model": "neospuppets:block/business_neoloxal/face_planting"},
+    "facing=east,pose=13,skin=2": {"model": "neospuppets:block/business_neoloxal/face_planting","y": 90},
+    "facing=south,pose=13,skin=2": {"model": "neospuppets:block/business_neoloxal/face_planting","y": 180},
+    "facing=west,pose=13,skin=2": {"model": "neospuppets:block/business_neoloxal/face_planting","y": 270},
+
+    "facing=north,pose=13,skin=3": {"model": "neospuppets:block/bopboyma/face_planting"},
+    "facing=east,pose=13,skin=3": {"model": "neospuppets:block/bopboyma/face_planting","y": 90},
+    "facing=south,pose=13,skin=3": {"model": "neospuppets:block/bopboyma/face_planting","y": 180},
+    "facing=west,pose=13,skin=3": {"model": "neospuppets:block/bopboyma/face_planting","y": 270},
+
+    "facing=north,pose=13,skin=4": {"model": "neospuppets:block/pixelmademess/face_planting"},
+    "facing=east,pose=13,skin=4": {"model": "neospuppets:block/pixelmademess/face_planting","y": 90},
+    "facing=south,pose=13,skin=4": {"model": "neospuppets:block/pixelmademess/face_planting","y": 180},
+    "facing=west,pose=13,skin=4": {"model": "neospuppets:block/pixelmademess/face_planting","y": 270},
+
+    "facing=north,pose=13,skin=5": {"model": "neospuppets:block/steve/face_planting"},
+    "facing=east,pose=13,skin=5": {"model": "neospuppets:block/steve/face_planting","y": 90},
+    "facing=south,pose=13,skin=5": {"model": "neospuppets:block/steve/face_planting","y": 180},
+    "facing=west,pose=13,skin=5": {"model": "neospuppets:block/steve/face_planting","y": 270},
+
+    "facing=north,pose=13,skin=6": {"model": "neospuppets:block/alex/face_planting"},
+    "facing=east,pose=13,skin=6": {"model": "neospuppets:block/alex/face_planting","y": 90},
+    "facing=south,pose=13,skin=6": {"model": "neospuppets:block/alex/face_planting","y": 180},
+    "facing=west,pose=13,skin=6": {"model": "neospuppets:block/alex/face_planting","y": 270},
+
+
+    "facing=north,pose=14,skin=puppet": {"model": "neospuppets:block/puppet/fruit_bat"},
+    "facing=east,pose=14,skin=puppet": {"model": "neospuppets:block/puppet/fruit_bat","y": 90},
+    "facing=south,pose=14,skin=puppet": {"model": "neospuppets:block/puppet/fruit_bat","y": 180},
+    "facing=west,pose=14,skin=puppet": {"model": "neospuppets:block/puppet/fruit_bat","y": 270},
+
+    "facing=north,pose=14,skin=1": {"model": "neospuppets:block/neoloxal/fruit_bat"},
+    "facing=east,pose=14,skin=1": {"model": "neospuppets:block/neoloxal/fruit_bat","y": 90},
+    "facing=south,pose=14,skin=1": {"model": "neospuppets:block/neoloxal/fruit_bat","y": 180},
+    "facing=west,pose=14,skin=1": {"model": "neospuppets:block/neoloxal/fruit_bat","y": 270},
+
+    "facing=north,pose=14,skin=2": {"model": "neospuppets:block/business_neoloxal/fruit_bat"},
+    "facing=east,pose=14,skin=2": {"model": "neospuppets:block/business_neoloxal/fruit_bat","y": 90},
+    "facing=south,pose=14,skin=2": {"model": "neospuppets:block/business_neoloxal/fruit_bat","y": 180},
+    "facing=west,pose=14,skin=2": {"model": "neospuppets:block/business_neoloxal/fruit_bat","y": 270},
+
+    "facing=north,pose=14,skin=3": {"model": "neospuppets:block/bopboyma/fruit_bat"},
+    "facing=east,pose=14,skin=3": {"model": "neospuppets:block/bopboyma/fruit_bat","y": 90},
+    "facing=south,pose=14,skin=3": {"model": "neospuppets:block/bopboyma/fruit_bat","y": 180},
+    "facing=west,pose=14,skin=3": {"model": "neospuppets:block/bopboyma/fruit_bat","y": 270},
+
+    "facing=north,pose=14,skin=4": {"model": "neospuppets:block/pixelmademess/fruit_bat"},
+    "facing=east,pose=14,skin=4": {"model": "neospuppets:block/pixelmademess/fruit_bat","y": 90},
+    "facing=south,pose=14,skin=4": {"model": "neospuppets:block/pixelmademess/fruit_bat","y": 180},
+    "facing=west,pose=14,skin=4": {"model": "neospuppets:block/pixelmademess/fruit_bat","y": 270},
+
+    "facing=north,pose=14,skin=5": {"model": "neospuppets:block/steve/fruit_bat"},
+    "facing=east,pose=14,skin=5": {"model": "neospuppets:block/steve/fruit_bat","y": 90},
+    "facing=south,pose=14,skin=5": {"model": "neospuppets:block/steve/fruit_bat","y": 180},
+    "facing=west,pose=14,skin=5": {"model": "neospuppets:block/steve/fruit_bat","y": 270},
+
+    "facing=north,pose=14,skin=6": {"model": "neospuppets:block/alex/fruit_bat"},
+    "facing=east,pose=14,skin=6": {"model": "neospuppets:block/alex/fruit_bat","y": 90},
+    "facing=south,pose=14,skin=6": {"model": "neospuppets:block/alex/fruit_bat","y": 180},
+    "facing=west,pose=14,skin=6": {"model": "neospuppets:block/alex/fruit_bat","y": 270},
+
+
+    "facing=north,pose=15,skin=puppet": {"model": "neospuppets:block/puppet/cool_sit"},
+    "facing=east,pose=15,skin=puppet": {"model": "neospuppets:block/puppet/cool_sit","y": 90},
+    "facing=south,pose=15,skin=puppet": {"model": "neospuppets:block/puppet/cool_sit","y": 180},
+    "facing=west,pose=15,skin=puppet": {"model": "neospuppets:block/puppet/cool_sit","y": 270},
+
+    "facing=north,pose=15,skin=1": {"model": "neospuppets:block/neoloxal/cool_sit"},
+    "facing=east,pose=15,skin=1": {"model": "neospuppets:block/neoloxal/cool_sit","y": 90},
+    "facing=south,pose=15,skin=1": {"model": "neospuppets:block/neoloxal/cool_sit","y": 180},
+    "facing=west,pose=15,skin=1": {"model": "neospuppets:block/neoloxal/cool_sit","y": 270},
+
+    "facing=north,pose=15,skin=2": {"model": "neospuppets:block/business_neoloxal/cool_sit"},
+    "facing=east,pose=15,skin=2": {"model": "neospuppets:block/business_neoloxal/cool_sit","y": 90},
+    "facing=south,pose=15,skin=2": {"model": "neospuppets:block/business_neoloxal/cool_sit","y": 180},
+    "facing=west,pose=15,skin=2": {"model": "neospuppets:block/business_neoloxal/cool_sit","y": 270},
+
+    "facing=north,pose=15,skin=3": {"model": "neospuppets:block/bopboyma/cool_sit"},
+    "facing=east,pose=15,skin=3": {"model": "neospuppets:block/bopboyma/cool_sit","y": 90},
+    "facing=south,pose=15,skin=3": {"model": "neospuppets:block/bopboyma/cool_sit","y": 180},
+    "facing=west,pose=15,skin=3": {"model": "neospuppets:block/bopboyma/cool_sit","y": 270},
+
+    "facing=north,pose=15,skin=4": {"model": "neospuppets:block/pixelmademess/cool_sit"},
+    "facing=east,pose=15,skin=4": {"model": "neospuppets:block/pixelmademess/cool_sit","y": 90},
+    "facing=south,pose=15,skin=4": {"model": "neospuppets:block/pixelmademess/cool_sit","y": 180},
+    "facing=west,pose=15,skin=4": {"model": "neospuppets:block/pixelmademess/cool_sit","y": 270},
+
+    "facing=north,pose=15,skin=5": {"model": "neospuppets:block/steve/cool_sit"},
+    "facing=east,pose=15,skin=5": {"model": "neospuppets:block/steve/cool_sit","y": 90},
+    "facing=south,pose=15,skin=5": {"model": "neospuppets:block/steve/cool_sit","y": 180},
+    "facing=west,pose=15,skin=5": {"model": "neospuppets:block/steve/cool_sit","y": 270},
+
+    "facing=north,pose=15,skin=6": {"model": "neospuppets:block/alex/cool_sit"},
+    "facing=east,pose=15,skin=6": {"model": "neospuppets:block/alex/cool_sit","y": 90},
+    "facing=south,pose=15,skin=6": {"model": "neospuppets:block/alex/cool_sit","y": 180},
+    "facing=west,pose=15,skin=6": {"model": "neospuppets:block/alex/cool_sit","y": 270},
+    
+
+    "facing=north,pose=16,skin=puppet": {"model": "neospuppets:block/puppet/sliding"},
+    "facing=east,pose=16,skin=puppet": {"model": "neospuppets:block/puppet/sliding","y": 90},
+    "facing=south,pose=16,skin=puppet": {"model": "neospuppets:block/puppet/sliding","y": 180},
+    "facing=west,pose=16,skin=puppet": {"model": "neospuppets:block/puppet/sliding","y": 270},
+
+    "facing=north,pose=16,skin=1": {"model": "neospuppets:block/neoloxal/sliding"},
+    "facing=east,pose=16,skin=1": {"model": "neospuppets:block/neoloxal/sliding","y": 90},
+    "facing=south,pose=16,skin=1": {"model": "neospuppets:block/neoloxal/sliding","y": 180},
+    "facing=west,pose=16,skin=1": {"model": "neospuppets:block/neoloxal/sliding","y": 270},
+
+    "facing=north,pose=16,skin=2": {"model": "neospuppets:block/business_neoloxal/sliding"},
+    "facing=east,pose=16,skin=2": {"model": "neospuppets:block/business_neoloxal/sliding","y": 90},
+    "facing=south,pose=16,skin=2": {"model": "neospuppets:block/business_neoloxal/sliding","y": 180},
+    "facing=west,pose=16,skin=2": {"model": "neospuppets:block/business_neoloxal/sliding","y": 270},
+
+    "facing=north,pose=16,skin=3": {"model": "neospuppets:block/bopboyma/sliding"},
+    "facing=east,pose=16,skin=3": {"model": "neospuppets:block/bopboyma/sliding","y": 90},
+    "facing=south,pose=16,skin=3": {"model": "neospuppets:block/bopboyma/sliding","y": 180},
+    "facing=west,pose=16,skin=3": {"model": "neospuppets:block/bopboyma/sliding","y": 270},
+
+    "facing=north,pose=16,skin=4": {"model": "neospuppets:block/pixelmademess/sliding"},
+    "facing=east,pose=16,skin=4": {"model": "neospuppets:block/pixelmademess/sliding","y": 90},
+    "facing=south,pose=16,skin=4": {"model": "neospuppets:block/pixelmademess/sliding","y": 180},
+    "facing=west,pose=16,skin=4": {"model": "neospuppets:block/pixelmademess/sliding","y": 270},
+
+    "facing=north,pose=16,skin=5": {"model": "neospuppets:block/steve/sliding"},
+    "facing=east,pose=16,skin=5": {"model": "neospuppets:block/steve/sliding","y": 90},
+    "facing=south,pose=16,skin=5": {"model": "neospuppets:block/steve/sliding","y": 180},
+    "facing=west,pose=16,skin=5": {"model": "neospuppets:block/steve/sliding","y": 270},
+
+    "facing=north,pose=16,skin=6": {"model": "neospuppets:block/alex/sliding"},
+    "facing=east,pose=16,skin=6": {"model": "neospuppets:block/alex/sliding","y": 90},
+    "facing=south,pose=16,skin=6": {"model": "neospuppets:block/alex/sliding","y": 180},
+    "facing=west,pose=16,skin=6": {"model": "neospuppets:block/alex/sliding","y": 270},
+
+
+    "facing=north,pose=17,skin=puppet": {"model": "neospuppets:block/puppet/balancing"},
+    "facing=east,pose=17,skin=puppet": {"model": "neospuppets:block/puppet/balancing","y": 90},
+    "facing=south,pose=17,skin=puppet": {"model": "neospuppets:block/puppet/balancing","y": 180},
+    "facing=west,pose=17,skin=puppet": {"model": "neospuppets:block/puppet/balancing","y": 270},
+
+    "facing=north,pose=17,skin=1": {"model": "neospuppets:block/neoloxal/balancing"},
+    "facing=east,pose=17,skin=1": {"model": "neospuppets:block/neoloxal/balancing","y": 90},
+    "facing=south,pose=17,skin=1": {"model": "neospuppets:block/neoloxal/balancing","y": 180},
+    "facing=west,pose=17,skin=1": {"model": "neospuppets:block/neoloxal/balancing","y": 270},
+
+    "facing=north,pose=17,skin=2": {"model": "neospuppets:block/business_neoloxal/balancing"},
+    "facing=east,pose=17,skin=2": {"model": "neospuppets:block/business_neoloxal/balancing","y": 90},
+    "facing=south,pose=17,skin=2": {"model": "neospuppets:block/business_neoloxal/balancing","y": 180},
+    "facing=west,pose=17,skin=2": {"model": "neospuppets:block/business_neoloxal/balancing","y": 270},
+
+    "facing=north,pose=17,skin=3": {"model": "neospuppets:block/bopboyma/balancing"},
+    "facing=east,pose=17,skin=3": {"model": "neospuppets:block/bopboyma/balancing","y": 90},
+    "facing=south,pose=17,skin=3": {"model": "neospuppets:block/bopboyma/balancing","y": 180},
+    "facing=west,pose=17,skin=3": {"model": "neospuppets:block/bopboyma/balancing","y": 270},
+
+    "facing=north,pose=17,skin=4": {"model": "neospuppets:block/pixelmademess/balancing"},
+    "facing=east,pose=17,skin=4": {"model": "neospuppets:block/pixelmademess/balancing","y": 90},
+    "facing=south,pose=17,skin=4": {"model": "neospuppets:block/pixelmademess/balancing","y": 180},
+    "facing=west,pose=17,skin=4": {"model": "neospuppets:block/pixelmademess/balancing","y": 270},
+
+    "facing=north,pose=17,skin=5": {"model": "neospuppets:block/steve/balancing"},
+    "facing=east,pose=17,skin=5": {"model": "neospuppets:block/steve/balancing","y": 90},
+    "facing=south,pose=17,skin=5": {"model": "neospuppets:block/steve/balancing","y": 180},
+    "facing=west,pose=17,skin=5": {"model": "neospuppets:block/steve/balancing","y": 270},
+
+    "facing=north,pose=17,skin=6": {"model": "neospuppets:block/alex/balancing"},
+    "facing=east,pose=17,skin=6": {"model": "neospuppets:block/alex/balancing","y": 90},
+    "facing=south,pose=17,skin=6": {"model": "neospuppets:block/alex/balancing","y": 180},
+    "facing=west,pose=17,skin=6": {"model": "neospuppets:block/alex/balancing","y": 270},
+
+
+    "facing=north,pose=18,skin=puppet": {"model": "neospuppets:block/puppet/tape"},
+    "facing=east,pose=18,skin=puppet": {"model": "neospuppets:block/puppet/tape","y": 90},
+    "facing=south,pose=18,skin=puppet": {"model": "neospuppets:block/puppet/tape","y": 180},
+    "facing=west,pose=18,skin=puppet": {"model": "neospuppets:block/puppet/tape","y": 270},
+
+    "facing=north,pose=18,skin=1": {"model": "neospuppets:block/neoloxal/tape"},
+    "facing=east,pose=18,skin=1": {"model": "neospuppets:block/neoloxal/tape","y": 90},
+    "facing=south,pose=18,skin=1": {"model": "neospuppets:block/neoloxal/tape","y": 180},
+    "facing=west,pose=18,skin=1": {"model": "neospuppets:block/neoloxal/tape","y": 270},
+
+    "facing=north,pose=18,skin=2": {"model": "neospuppets:block/business_neoloxal/tape"},
+    "facing=east,pose=18,skin=2": {"model": "neospuppets:block/business_neoloxal/tape","y": 90},
+    "facing=south,pose=18,skin=2": {"model": "neospuppets:block/business_neoloxal/tape","y": 180},
+    "facing=west,pose=18,skin=2": {"model": "neospuppets:block/business_neoloxal/tape","y": 270},
+
+    "facing=north,pose=18,skin=3": {"model": "neospuppets:block/bopboyma/tape"},
+    "facing=east,pose=18,skin=3": {"model": "neospuppets:block/bopboyma/tape","y": 90},
+    "facing=south,pose=18,skin=3": {"model": "neospuppets:block/bopboyma/tape","y": 180},
+    "facing=west,pose=18,skin=3": {"model": "neospuppets:block/bopboyma/tape","y": 270},
+
+    "facing=north,pose=18,skin=4": {"model": "neospuppets:block/pixelmademess/tape"},
+    "facing=east,pose=18,skin=4": {"model": "neospuppets:block/pixelmademess/tape","y": 90},
+    "facing=south,pose=18,skin=4": {"model": "neospuppets:block/pixelmademess/tape","y": 180},
+    "facing=west,pose=18,skin=4": {"model": "neospuppets:block/pixelmademess/tape","y": 270},
+
+    "facing=north,pose=18,skin=5": {"model": "neospuppets:block/steve/tape"},
+    "facing=east,pose=18,skin=5": {"model": "neospuppets:block/steve/tape","y": 90},
+    "facing=south,pose=18,skin=5": {"model": "neospuppets:block/steve/tape","y": 180},
+    "facing=west,pose=18,skin=5": {"model": "neospuppets:block/steve/tape","y": 270},
+
+    "facing=north,pose=18,skin=6": {"model": "neospuppets:block/alex/tape"},
+    "facing=east,pose=18,skin=6": {"model": "neospuppets:block/alex/tape","y": 90},
+    "facing=south,pose=18,skin=6": {"model": "neospuppets:block/alex/tape","y": 180},
+    "facing=west,pose=18,skin=6": {"model": "neospuppets:block/alex/tape","y": 270},
+
+
+    "facing=north,pose=19,skin=puppet": {"model": "neospuppets:block/puppet/hanging"},
+    "facing=east,pose=19,skin=puppet": {"model": "neospuppets:block/puppet/hanging","y": 90},
+    "facing=south,pose=19,skin=puppet": {"model": "neospuppets:block/puppet/hanging","y": 180},
+    "facing=west,pose=19,skin=puppet": {"model": "neospuppets:block/puppet/hanging","y": 270},
+
+    "facing=north,pose=19,skin=1": {"model": "neospuppets:block/neoloxal/hanging"},
+    "facing=east,pose=19,skin=1": {"model": "neospuppets:block/neoloxal/hanging","y": 90},
+    "facing=south,pose=19,skin=1": {"model": "neospuppets:block/neoloxal/hanging","y": 180},
+    "facing=west,pose=19,skin=1": {"model": "neospuppets:block/neoloxal/hanging","y": 270},
+
+    "facing=north,pose=19,skin=2": {"model": "neospuppets:block/business_neoloxal/hanging"},
+    "facing=east,pose=19,skin=2": {"model": "neospuppets:block/business_neoloxal/hanging","y": 90},
+    "facing=south,pose=19,skin=2": {"model": "neospuppets:block/business_neoloxal/hanging","y": 180},
+    "facing=west,pose=19,skin=2": {"model": "neospuppets:block/business_neoloxal/hanging","y": 270},
+
+    "facing=north,pose=19,skin=3": {"model": "neospuppets:block/bopboyma/hanging"},
+    "facing=east,pose=19,skin=3": {"model": "neospuppets:block/bopboyma/hanging","y": 90},
+    "facing=south,pose=19,skin=3": {"model": "neospuppets:block/bopboyma/hanging","y": 180},
+    "facing=west,pose=19,skin=3": {"model": "neospuppets:block/bopboyma/hanging","y": 270},
+
+    "facing=north,pose=19,skin=4": {"model": "neospuppets:block/pixelmademess/hanging"},
+    "facing=east,pose=19,skin=4": {"model": "neospuppets:block/pixelmademess/hanging","y": 90},
+    "facing=south,pose=19,skin=4": {"model": "neospuppets:block/pixelmademess/hanging","y": 180},
+    "facing=west,pose=19,skin=4": {"model": "neospuppets:block/pixelmademess/hanging","y": 270},
+
+    "facing=north,pose=19,skin=5": {"model": "neospuppets:block/steve/hanging"},
+    "facing=east,pose=19,skin=5": {"model": "neospuppets:block/steve/hanging","y": 90},
+    "facing=south,pose=19,skin=5": {"model": "neospuppets:block/steve/hanging","y": 180},
+    "facing=west,pose=19,skin=5": {"model": "neospuppets:block/steve/hanging","y": 270},
+
+    "facing=north,pose=19,skin=6": {"model": "neospuppets:block/alex/hanging"},
+    "facing=east,pose=19,skin=6": {"model": "neospuppets:block/alex/hanging","y": 90},
+    "facing=south,pose=19,skin=6": {"model": "neospuppets:block/alex/hanging","y": 180},
+    "facing=west,pose=19,skin=6": {"model": "neospuppets:block/alex/hanging","y": 270}
+  }
+}

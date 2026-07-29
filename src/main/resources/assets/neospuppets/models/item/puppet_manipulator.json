@@ -1,0 +1,106 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made with Blockbench",
+	"textures": {
+		"planks": "block/spruce_planks",
+		"stone": "block/stone",
+		"string": "item/string"
+	},
+	"elements": [
+		{
+			"name": "Bar1",
+			"from": [3, 7, 7],
+			"to": [13, 9, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [3, 7, 7]},
+			"faces": {
+				"north": {"uv": [0, 0, 10, 2], "texture": "#planks"},
+				"east": {"uv": [0, 0, 2, 2], "texture": "#planks"},
+				"south": {"uv": [0, 0, 10, 2], "texture": "#planks"},
+				"west": {"uv": [0, 0, 2, 2], "texture": "#planks"},
+				"up": {"uv": [0, 0, 10, 2], "texture": "#planks"},
+				"down": {"uv": [0, 0, 10, 2], "texture": "#planks"}
+			}
+		},
+		{
+			"name": "Bar2",
+			"from": [7, 7, 3],
+			"to": [9, 9, 13],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 8, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 2, 2], "texture": "#planks"},
+				"east": {"uv": [0, 0, 10, 2], "texture": "#planks"},
+				"south": {"uv": [0, 0, 2, 2], "texture": "#planks"},
+				"west": {"uv": [0, 0, 10, 2], "texture": "#planks"},
+				"up": {"uv": [0, 0, 10, 2], "rotation": 90, "texture": "#planks"},
+				"down": {"uv": [0, 0, 10, 2], "rotation": 270, "texture": "#planks"}
+			}
+		},
+		{
+			"name": "Center",
+			"from": [7, 6.5, 7],
+			"to": [9, 9.5, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7, 7, 7]},
+			"faces": {
+				"north": {"uv": [0, 0.5, 2, 3.5], "texture": "#stone"},
+				"east": {"uv": [0, 0.5, 2, 3.5], "texture": "#stone"},
+				"south": {"uv": [0, 0.5, 2, 3.5], "texture": "#stone"},
+				"west": {"uv": [0, 0.5, 2, 3.5], "texture": "#stone"},
+				"up": {"uv": [0, 0, 2, 2], "texture": "#stone"},
+				"down": {"uv": [0, 0, 2, 2], "texture": "#stone"}
+			}
+		},
+		{
+			"name": "StringPlane1",
+			"from": [4, 0, 8],
+			"to": [12, 8, 8],
+			"rotation": {"angle": 0, "axis": "y", "origin": [4, 0, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#string"},
+				"east": {"uv": [2, 0, 2, 8], "texture": "#string"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#string"},
+				"west": {"uv": [0, 0, 0, 8], "texture": "#string"},
+				"up": {"uv": [0, 0, 8, 0], "texture": "#string"},
+				"down": {"uv": [0, 2, 8, 2], "texture": "#string"}
+			}
+		},
+		{
+			"name": "StringPlane2",
+			"from": [8, 0, 4],
+			"to": [8, 8, 12],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 4, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 0, 8], "texture": "#string"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#string"},
+				"south": {"uv": [2, 0, 2, 8], "texture": "#string"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#string"},
+				"up": {"uv": [0, 0, 8, 0], "rotation": 90, "texture": "#string"},
+				"down": {"uv": [0, 2, 8, 2], "rotation": 270, "texture": "#string"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [90, 0, 0],
+			"translation": [0, -2, 0]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [90, 0, 0],
+			"translation": [0, -2, 0]
+		},
+		"firstperson_righthand": {
+			"translation": [0, 3, 0]
+		},
+		"firstperson_lefthand": {
+			"translation": [0, 3, 0]
+		},
+		"gui": {
+			"rotation": [45, 45, 0]
+		},
+		"head": {
+			"translation": [0, 7.25, 0]
+		},
+		"fixed": {
+			"rotation": [-90, 0, 0]
+		}
+	}
+}

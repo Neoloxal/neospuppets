@@ -1,0 +1,8 @@
+{
+  "parent": "kubejs:block/generic/sliding",
+  "textures": {
+    "skin": "kubejs:block/skin/bopboyma",
+	"outerLayer": "kubejs:block/skin/bopboyma",
+	"particle": "kubejs:block/bopboyma_particles"
+  }
+}

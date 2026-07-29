@@ -1,0 +1,8 @@
+{
+  "parent": "kubejs:block/generic/sad",
+  "textures": {
+    "skin": "kubejs:block/skin/alex",
+    "outerLayer": "kubejs:block/skin/alex",
+    "particle": "kubejs:block/skin/alex"
+  }
+}
