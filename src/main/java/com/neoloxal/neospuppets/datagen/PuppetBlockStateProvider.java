@@ -12,6 +12,7 @@ import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.client.model.generators.VariantBlockStateBuilder;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
+import javax.annotation.Nullable;
 import java.util.List;
 
 public class PuppetBlockStateProvider extends BlockStateProvider {
@@ -45,21 +46,21 @@ public class PuppetBlockStateProvider extends BlockStateProvider {
         );
 
         registerSkin(Skin.PUPPET, false, "minecraft:block/oak_planks", POSES);
-        registerSkin(Skin.NEOLOXAL, true, "neospuppets:block/paint_particles", POSES);
-        registerSkin(Skin.BUSINESS_NEOLOXAL, true, "neospuppets:block/paint_particles", POSES);
-        registerSkin(Skin.BOPBOYMA, true, "neospuppets:block/bopboyma_particles", POSES);
-        registerSkin(Skin.PIXELMADEMESS, true, "neospuppets:block/blood_particles", POSES);
+        registerSkin(Skin.NEOLOXAL, true, "neospuppets:block/particle/paint_particles", POSES);
+        registerSkin(Skin.BUSINESS_NEOLOXAL, true, "neospuppets:block/particle/paint_particles", POSES);
+        registerSkin(Skin.BOPBOYMA, true, "neospuppets:block/particle/bopboyma_particles", POSES);
+        registerSkin(Skin.PIXELMADEMESS, true, "neospuppets:block/particle/blood_particles", POSES);
         registerSkin(Skin.STEVE, true, "", POSES);
         registerSkin(Skin.ALEX, true, null, POSES);
 
     }
 
-    private void registerSkin(Skin skin, boolean useOuterLayer, String particleOverride, List<String> poses) {
+    private void registerSkin(Skin skin, boolean useOuterLayer, @Nullable String particleOverride, List<String> poses) {
         VariantBlockStateBuilder variants = getVariantBuilder(NeosPuppets.PUPPET.get());
 
         for (String pose : poses) {
             BlockModelBuilder model = models().withExistingParent("puppet/" + skin.getSerializedName() + "/" + pose,
-                    modLoc("block/generic/" + pose))
+                    modLoc("puppet/generic/" + pose))
                     .texture("skin", "neospuppets:block/skin/" + skin.getSerializedName())
                     .texture("particle", "neospuppets:block/skin/" + skin.getSerializedName());
             if (useOuterLayer) {
