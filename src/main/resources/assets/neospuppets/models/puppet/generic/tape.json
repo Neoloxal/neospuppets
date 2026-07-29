@@ -5,7 +5,7 @@
 	"textures": {
 		"particle": "block/oak_planks",
 		"skin": "block/oak_planks",
-		"outerLayer": "kubejs:block/blank"
+		"outerLayer": "neospuppets:block/blank"
 	},
 	"render_type": "minecraft:cutout",
 	"elements": [

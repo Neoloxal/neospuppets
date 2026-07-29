@@ -1,3 +1,7 @@
 {
-  "block.neospuppets.puppet": "Puppet"
+  "block.neospuppets.puppet": "Puppet",
+
+  "item.neospuppets.puppet_manipulator": "Puppet Manipulator",
+
+  "messages.neospuppets.puppet_pose_changed": "Changed puppet's pose to %s of %s"
 }

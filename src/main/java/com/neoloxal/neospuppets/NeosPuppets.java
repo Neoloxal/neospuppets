@@ -1,6 +1,7 @@
 package com.neoloxal.neospuppets;
 
 import com.neoloxal.neospuppets.puppets.Puppet;
+import com.neoloxal.neospuppets.puppets.PuppetManipulator;
 import net.minecraft.world.level.block.SoundType;
 import org.slf4j.Logger;
 
@@ -52,6 +53,9 @@ public class NeosPuppets {
     ));
     public static final DeferredItem<Item> PUPPET_ITEM = ITEMS.register("puppet", () -> new BlockItem(PUPPET.get(), new Item.Properties()));
 
+    public static final DeferredItem<Item> PUPPET_MANIPULATOR = ITEMS.register("puppet_manipulator", () -> new PuppetManipulator(new Item.Properties()
+            .durability(250)
+    ));
 
     // The constructor for the mod class is the first code run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
@@ -93,6 +97,8 @@ public class NeosPuppets {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
             event.accept(PUPPET_ITEM);
+        } else if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
+            event.accept(PUPPET_MANIPULATOR);
         }
     }
 

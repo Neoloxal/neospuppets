@@ -3,17 +3,17 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [64, 64],
 	"textures": {
-		"skin": "minecraft:block/oak_planks",
-		"outerLayer": "kubejs:block/blank",
-		"particle": "minecraft:block/oak_planks"
+		"particle": "block/oak_planks",
+		"skin": "block/oak_planks",
+		"outerLayer": "neospuppets:block/blank"
 	},
 	"render_type": "minecraft:cutout",
 	"elements": [
 		{
 			"name": "Head",
-			"from": [6, 6.4, 8.1],
-			"to": [10, 10.4, 12.1],
-			"rotation": {"angle": -22.5, "axis": "x", "origin": [8, 8.4, 10.1]},
+			"from": [6, 7, 6],
+			"to": [10, 11, 10],
+			"rotation": {"angle": 0, "axis": "z", "origin": [8, -4, 8]},
 			"faces": {
 				"north": {"uv": [2, 2, 4, 4], "texture": "#skin"},
 				"east": {"uv": [0, 2, 2, 4], "texture": "#skin"},
@@ -25,9 +25,9 @@
 		},
 		{
 			"name": "Hat Layer",
-			"from": [5.5, 5.9, 7.6],
-			"to": [10.5, 10.9, 12.6],
-			"rotation": {"angle": -22.5, "axis": "x", "origin": [8, 8.4, 10.1]},
+			"from": [5.5, 6.5, 5.5],
+			"to": [10.5, 11.5, 10.5],
+			"rotation": {"angle": 0, "axis": "z", "origin": [8, -4, 8]},
 			"faces": {
 				"north": {"uv": [10, 2, 12, 4], "texture": "#outerLayer"},
 				"east": {"uv": [8, 2, 10, 4], "texture": "#outerLayer"},
@@ -39,9 +39,9 @@
 		},
 		{
 			"name": "Body",
-			"from": [6, 0, 10],
-			"to": [10, 6, 12],
-			"rotation": {"angle": 0, "axis": "z", "origin": [8, -6, 11]},
+			"from": [6, 1, 7],
+			"to": [10, 7, 9],
+			"rotation": {"angle": 0, "axis": "z", "origin": [8, -5, 8]},
 			"faces": {
 				"north": {"uv": [5, 5, 7, 8], "texture": "#skin"},
 				"east": {"uv": [4, 5, 5, 8], "texture": "#skin"},
@@ -53,9 +53,9 @@
 		},
 		{
 			"name": "Body Layer",
-			"from": [5.75, -0.25, 9.75],
-			"to": [10.25, 6.25, 12.25],
-			"rotation": {"angle": 0, "axis": "z", "origin": [8, -6, 11]},
+			"from": [5.75, 0.75, 6.75],
+			"to": [10.25, 7.25, 9.25],
+			"rotation": {"angle": 0, "axis": "z", "origin": [8, -5, 8]},
 			"faces": {
 				"north": {"uv": [5, 9, 7, 12], "texture": "#outerLayer"},
 				"east": {"uv": [4, 9, 5, 12], "texture": "#outerLayer"},
@@ -67,9 +67,9 @@
 		},
 		{
 			"name": "Right Arm",
-			"from": [10.125, 3.9, 5.225],
-			"to": [12.125, 5.9, 11.225],
-			"rotation": {"angle": 22.5, "axis": "y", "origin": [11.125, 4.9, 10.225]},
+			"from": [10, 5, 3],
+			"to": [12, 7, 9],
+			"rotation": {"angle": 22.5, "axis": "y", "origin": [11, 6, 8]},
 			"faces": {
 				"north": {"uv": [13, 4, 12, 5], "rotation": 270, "texture": "#skin"},
 				"east": {"uv": [13, 5, 14, 8], "rotation": 270, "texture": "#skin"},
@@ -81,9 +81,9 @@
 		},
 		{
 			"name": "Right Arm Layer",
-			"from": [9.875, 3.65, 4.975],
-			"to": [12.375, 6.15, 11.475],
-			"rotation": {"angle": 22.5, "axis": "y", "origin": [11.125, 4.9, 10.225]},
+			"from": [9.75, 4.75, 2.75],
+			"to": [12.25, 7.25, 9.25],
+			"rotation": {"angle": 22.5, "axis": "y", "origin": [11, 6, 8]},
 			"faces": {
 				"north": {"uv": [13, 8, 12, 9], "rotation": 270, "texture": "#outerLayer"},
 				"east": {"uv": [13, 9, 14, 12], "rotation": 270, "texture": "#outerLayer"},
@@ -95,9 +95,9 @@
 		},
 		{
 			"name": "Left Arm",
-			"from": [4, 3.775, 5.175],
-			"to": [6, 5.775, 11.175],
-			"rotation": {"angle": -22.5, "axis": "y", "origin": [5, 4.775, 10.175]},
+			"from": [4, 5, 3],
+			"to": [6, 7, 9],
+			"rotation": {"angle": -22.5, "axis": "y", "origin": [5, 6, 8]},
 			"faces": {
 				"north": {"uv": [11, 12, 10, 13], "rotation": 90, "texture": "#skin"},
 				"east": {"uv": [9, 13, 10, 16], "rotation": 270, "texture": "#skin"},
@@ -109,9 +109,9 @@
 		},
 		{
 			"name": "Left Arm Layer",
-			"from": [3.75, 3.525, 4.925],
-			"to": [6.25, 6.025, 11.425],
-			"rotation": {"angle": -22.5, "axis": "y", "origin": [5, 4.775, 10.175]},
+			"from": [3.75, 4.75, 2.75],
+			"to": [6.25, 7.25, 9.25],
+			"rotation": {"angle": -22.5, "axis": "y", "origin": [5, 6, 8]},
 			"faces": {
 				"north": {"uv": [15, 12, 14, 13], "rotation": 90, "texture": "#outerLayer"},
 				"east": {"uv": [13, 13, 14, 16], "rotation": 270, "texture": "#outerLayer"},
@@ -123,58 +123,58 @@
 		},
 		{
 			"name": "Right Leg",
-			"from": [8.45, 0, 7],
-			"to": [10.45, 6, 9],
-			"rotation": {"angle": 0, "axis": "z", "origin": [9.5, 6, 8]},
+			"from": [8, 0, 8],
+			"to": [10, 2, 14],
+			"rotation": {"angle": 0, "axis": "x", "origin": [9.05, 1, 8]},
 			"faces": {
-				"north": {"uv": [1, 5, 2, 8], "texture": "#skin"},
-				"east": {"uv": [0, 5, 1, 8], "texture": "#skin"},
-				"south": {"uv": [3, 5, 4, 8], "texture": "#skin"},
-				"west": {"uv": [2, 5, 3, 8], "texture": "#skin"},
-				"up": {"uv": [2, 5, 1, 4], "texture": "#skin"},
-				"down": {"uv": [3, 4, 2, 5], "texture": "#skin"}
+				"north": {"uv": [2, 5, 1, 4], "rotation": 180, "texture": "#skin"},
+				"east": {"uv": [0, 5, 1, 8], "rotation": 90, "texture": "#skin"},
+				"south": {"uv": [3, 4, 2, 5], "texture": "#skin"},
+				"west": {"uv": [2, 5, 3, 8], "rotation": 270, "texture": "#skin"},
+				"up": {"uv": [3, 5, 4, 8], "texture": "#skin"},
+				"down": {"uv": [1, 5, 2, 8], "rotation": 180, "texture": "#skin"}
 			}
 		},
 		{
 			"name": "Right Leg Layer",
-			"from": [8.2, -0.25, 6.75],
-			"to": [10.7, 6.25, 9.25],
-			"rotation": {"angle": 0, "axis": "z", "origin": [9.5, 6, 8]},
+			"from": [7.75, -0.25, 7.75],
+			"to": [10.25, 2.25, 14.25],
+			"rotation": {"angle": 0, "axis": "x", "origin": [9.05, 1, 8]},
 			"faces": {
-				"north": {"uv": [1, 9, 2, 12], "texture": "#outerLayer"},
-				"east": {"uv": [0, 9, 1, 12], "texture": "#outerLayer"},
-				"south": {"uv": [3, 9, 4, 12], "texture": "#outerLayer"},
-				"west": {"uv": [2, 9, 3, 12], "texture": "#outerLayer"},
-				"up": {"uv": [2, 9, 1, 8], "texture": "#outerLayer"},
-				"down": {"uv": [3, 8, 2, 9], "texture": "#outerLayer"}
+				"north": {"uv": [2, 9, 1, 8], "rotation": 180, "texture": "#outerLayer"},
+				"east": {"uv": [0, 9, 1, 12], "rotation": 90, "texture": "#outerLayer"},
+				"south": {"uv": [3, 8, 2, 9], "texture": "#outerLayer"},
+				"west": {"uv": [2, 9, 3, 12], "rotation": 270, "texture": "#outerLayer"},
+				"up": {"uv": [3, 9, 4, 12], "texture": "#outerLayer"},
+				"down": {"uv": [1, 9, 2, 12], "rotation": 180, "texture": "#outerLayer"}
 			}
 		},
 		{
 			"name": "Left Leg",
-			"from": [5.55, 0, 7],
-			"to": [7.55, 6, 9],
-			"rotation": {"angle": 0, "axis": "z", "origin": [6.5, 6, 8]},
+			"from": [6.025, 0, 8],
+			"to": [8.025, 2, 14],
+			"rotation": {"angle": 0, "axis": "x", "origin": [6.975, 1, 8]},
 			"faces": {
-				"north": {"uv": [5, 13, 6, 16], "texture": "#skin"},
-				"east": {"uv": [4, 13, 5, 16], "texture": "#skin"},
-				"south": {"uv": [7, 13, 8, 16], "texture": "#skin"},
-				"west": {"uv": [6, 13, 7, 16], "texture": "#skin"},
-				"up": {"uv": [6, 13, 5, 12], "texture": "#skin"},
-				"down": {"uv": [7, 12, 6, 13], "texture": "#skin"}
+				"north": {"uv": [6, 13, 5, 12], "rotation": 180, "texture": "#skin"},
+				"east": {"uv": [4, 13, 5, 16], "rotation": 90, "texture": "#skin"},
+				"south": {"uv": [7, 12, 6, 13], "texture": "#skin"},
+				"west": {"uv": [6, 13, 7, 16], "rotation": 270, "texture": "#skin"},
+				"up": {"uv": [7, 13, 8, 16], "texture": "#skin"},
+				"down": {"uv": [5, 13, 6, 16], "rotation": 180, "texture": "#skin"}
 			}
 		},
 		{
 			"name": "Left Leg Layer",
-			"from": [5.3, -0.25, 6.75],
-			"to": [7.8, 6.25, 9.25],
-			"rotation": {"angle": 0, "axis": "z", "origin": [6.5, 6, 8]},
+			"from": [5.775, -0.25, 7.75],
+			"to": [8.275, 2.25, 14.25],
+			"rotation": {"angle": 0, "axis": "x", "origin": [6.975, 1, 8]},
 			"faces": {
-				"north": {"uv": [1, 13, 2, 16], "texture": "#outerLayer"},
-				"east": {"uv": [0, 13, 1, 16], "texture": "#outerLayer"},
-				"south": {"uv": [3, 13, 4, 16], "texture": "#outerLayer"},
-				"west": {"uv": [2, 13, 3, 16], "texture": "#outerLayer"},
-				"up": {"uv": [2, 13, 1, 12], "texture": "#outerLayer"},
-				"down": {"uv": [3, 12, 2, 13], "texture": "#outerLayer"}
+				"north": {"uv": [2, 13, 1, 12], "rotation": 180, "texture": "#outerLayer"},
+				"east": {"uv": [0, 13, 1, 16], "rotation": 90, "texture": "#outerLayer"},
+				"south": {"uv": [3, 12, 2, 13], "texture": "#outerLayer"},
+				"west": {"uv": [2, 13, 3, 16], "rotation": 270, "texture": "#outerLayer"},
+				"up": {"uv": [3, 13, 4, 16], "texture": "#outerLayer"},
+				"down": {"uv": [1, 13, 2, 16], "rotation": 180, "texture": "#outerLayer"}
 			}
 		}
 	],

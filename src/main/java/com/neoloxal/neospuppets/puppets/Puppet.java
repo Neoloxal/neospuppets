@@ -1,18 +1,8 @@
 package com.neoloxal.neospuppets.puppets;
 
 import com.mojang.serialization.MapCodec;
-import com.neoloxal.neospuppets.NeosPuppets;
-import net.minecraft.client.renderer.RenderType;
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -20,7 +10,6 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
-import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
 
 public class Puppet extends HorizontalDirectionalBlock {
@@ -57,11 +46,6 @@ public class Puppet extends HorizontalDirectionalBlock {
             direction = direction.getOpposite();
         }
         return this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, direction);
-    }
-
-    @Override
-    protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
-        return super.useWithoutItem(state, level, pos, player, hitResult);
     }
 }
 

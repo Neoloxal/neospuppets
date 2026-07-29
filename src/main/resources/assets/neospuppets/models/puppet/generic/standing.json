@@ -4,7 +4,7 @@
 	"texture_size": [64, 64],
 	"textures": {
 		"skin": "minecraft:block/oak_planks",
-		"outerLayer": "kubejs:block/blank",
+		"outerLayer": "neospuppets:block/blank",
 		"particle": "minecraft:block/oak_planks"
 	},
 	"render_type": "minecraft:cutout",
