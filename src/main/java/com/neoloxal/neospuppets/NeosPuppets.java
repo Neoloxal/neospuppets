@@ -50,6 +50,7 @@ public class NeosPuppets {
             .mapColor(MapColor.WOOD)
             .strength(2.0F, 3.0F)
             .noOcclusion()
+            .noCollission()
     ));
     public static final DeferredItem<Item> PUPPET_ITEM = ITEMS.register("puppet", () -> new BlockItem(PUPPET.get(), new Item.Properties()));
 
