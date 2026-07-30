@@ -22,41 +22,18 @@ public class PuppetBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        final List<String> POSES = List.of(
-                "sitting",
-                "standing",
-                "waving",
-                "pointing",
-                "t_posing",
-                "jumping",
-                "balancing",
-                "jarona",
-                "fruit_bat",
-                "sad",
-                "crying",
-                "cool_sit",
-                "praying",
-                "laying",
-                "sliding",
-                "face_planting",
-                "floating",
-                "tape",
-                "hanging",
-                "horse"
-        );
+        registerSkin(Skin.PUPPET, false, "minecraft:block/oak_planks", Puppet.POSES);
+        registerSkin(Skin.STEVE, true, "neospuppets:block/particle/steve_particles", Puppet.POSES);
+        registerSkin(Skin.ALEX, true, "neospuppets:block/particle/alex_particles", Puppet.POSES);
+        registerSkin(Skin.ARI, true, "neospuppets:block/particle/ari_particles", Puppet.POSES);
+        registerSkin(Skin.EFE, true, "neospuppets:block/particle/efe_particles", Puppet.POSES);
+        registerSkin(Skin.KAI, true, "neospuppets:block/particle/kai_particles", Puppet.POSES);
+        registerSkin(Skin.MAKENA, true, "neospuppets:block/particle/makena_particles", Puppet.POSES);
+        registerSkin(Skin.NOOR, true, "neospuppets:block/particle/noor_particles", Puppet.POSES);
+        registerSkin(Skin.SUNNY, true, "neospuppets:block/particle/sunny_particles", Puppet.POSES);
+        registerSkin(Skin.ZURI, true, "neospuppets:block/particle/zuri_particles", Puppet.POSES);
 
-        registerSkin(Skin.PUPPET, false, "minecraft:block/oak_planks", POSES);
-        registerSkin(Skin.STEVE, true, "neospuppets:block/particle/steve_particles", POSES);
-        registerSkin(Skin.ALEX, true, "neospuppets:block/particle/alex_particles", POSES);
-        registerSkin(Skin.ARI, true, "neospuppets:block/particle/ari_particles", POSES);
-        registerSkin(Skin.EFE, true, "neospuppets:block/particle/efe_particles", POSES);
-        registerSkin(Skin.KAI, true, "neospuppets:block/particle/kai_particles", POSES);
-        registerSkin(Skin.MAKENA, true, "neospuppets:block/particle/makena_particles", POSES);
-        registerSkin(Skin.NOOR, true, "neospuppets:block/particle/noor_particles", POSES);
-        registerSkin(Skin.SUNNY, true, "neospuppets:block/particle/sunny_particles", POSES);
-        registerSkin(Skin.ZURI, true, "neospuppets:block/particle/zuri_particles", POSES);
-
-        registerSkin(Skin.NEOLOXAL, true, "neospuppets:block/particle/paint_particles", POSES);
+        registerSkin(Skin.NEOLOXAL, true, "neospuppets:block/particle/paint_particles", Puppet.POSES);
     }
 
     private void registerSkin(Skin skin, boolean useOuterLayer, @Nullable String particleOverride, List<String> poses) {

@@ -11,7 +11,6 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -19,8 +18,10 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import com.neoloxal.neospuppets.puppets.CustomPuppetBlockEntity.*;
 
 import java.util.List;
 
@@ -35,18 +36,33 @@ public class PuppetManipulator extends Item {
         BlockState state = level.getBlockState(context.getClickedPos());
         Block clickedBlock = level.getBlockState(context.getClickedPos()).getBlock();
         Player player = context.getPlayer();
+        BlockEntity blockEntity = level.getBlockEntity(context.getClickedPos());
+        CustomPuppetBlockEntity puppetEntity = (CustomPuppetBlockEntity) blockEntity;
+        boolean isBlockEntity = false;
 
         if (!level.isClientSide()) {
-            if (clickedBlock.equals(NeosPuppets.PUPPET.get())) {
+            if (clickedBlock.equals(NeosPuppets.PUPPET.get()) || clickedBlock.equals(NeosPuppets.CUSTOM_PUPPET_BLOCK.get())) {
+                if (clickedBlock.equals(NeosPuppets.CUSTOM_PUPPET_BLOCK.get())) {
+                    isBlockEntity = true;
+                }
                 if (context.getHand() == InteractionHand.MAIN_HAND) {
-                    int currentPose = state.getValue(Puppet.POSE);
+                    int currentPose;
+                    if (!isBlockEntity) {
+                        currentPose = state.getValue(Puppet.POSE);
+                    } else {
+                        currentPose = puppetEntity.getPose();
+                    }
                     int poseDirection = 1;
                     if (player.isShiftKeyDown()) {
                         poseDirection = -1;
                     }
 
                     int newPose = (currentPose + (poseDirection) + (Puppet.MAX_POSE + 1)) % (Puppet.MAX_POSE + 1);
-                    level.setBlockAndUpdate(context.getClickedPos(), state.setValue(Puppet.POSE, newPose));
+                    if (!isBlockEntity) {
+                        level.setBlockAndUpdate(context.getClickedPos(), state.setValue(Puppet.POSE, newPose));
+                    } else {
+                        puppetEntity.setPose(newPose);
+                    }
 
                     context.getItemInHand().hurtAndBreak(1, ((ServerLevel) level), player,
                             item -> player.onEquippedItemBroken(item, EquipmentSlot.MAINHAND));

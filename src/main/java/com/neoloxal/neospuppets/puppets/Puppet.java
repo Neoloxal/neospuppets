@@ -39,6 +39,29 @@ public class Puppet extends HorizontalDirectionalBlock {
     public static final IntegerProperty POSE = IntegerProperty.create("pose", 0, MAX_POSE);
     public static final EnumProperty<Skin> SKIN = EnumProperty.create("skin", Skin.class);
 
+    public static final List<String> POSES = List.of(
+            "sitting",
+            "standing",
+            "waving",
+            "pointing",
+            "t_posing",
+            "jumping",
+            "balancing",
+            "jarona",
+            "fruit_bat",
+            "sad",
+            "crying",
+            "cool_sit",
+            "praying",
+            "laying",
+            "sliding",
+            "face_planting",
+            "floating",
+            "tape",
+            "hanging",
+            "horse"
+    );
+
     public Puppet(Properties properties) {
         super(properties);
         this.registerDefaultState(getStateDefinition().any()
