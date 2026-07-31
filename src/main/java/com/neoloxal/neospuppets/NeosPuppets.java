@@ -1,5 +1,6 @@
 package com.neoloxal.neospuppets;
 
+import com.neoloxal.neospuppets.client.PuppetModel;
 import com.neoloxal.neospuppets.client.renderer.PuppetRenderer;
 import com.neoloxal.neospuppets.puppets.CustomPuppetBlockEntity;
 import com.neoloxal.neospuppets.puppets.CustomPuppetBlock;
@@ -131,6 +132,11 @@ public class NeosPuppets {
                 event.register(ModelResourceLocation.standalone(
                         ResourceLocation.fromNamespaceAndPath("neospuppets", "puppet/generic/" + pose)));
             }
+        }
+
+        @SubscribeEvent
+        public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
+            event.registerLayerDefinition(PuppetModel.LAYER_LOCATION, PuppetModel::createBodyLayer);
         }
     }
 }

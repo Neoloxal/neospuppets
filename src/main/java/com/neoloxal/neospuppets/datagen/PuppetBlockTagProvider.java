@@ -18,6 +18,7 @@ public class PuppetBlockTagProvider extends BlockTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
         tag(BlockTags.MINEABLE_WITH_AXE)
-                .add(NeosPuppets.PUPPET.get());
+                .add(NeosPuppets.PUPPET.get())
+                .add(NeosPuppets.CUSTOM_PUPPET_BLOCK.get());
     }
 }
