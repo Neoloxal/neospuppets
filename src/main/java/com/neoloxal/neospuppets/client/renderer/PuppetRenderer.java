@@ -4,19 +4,16 @@ import com.mojang.authlib.GameProfile;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
+import com.neoloxal.neospuppets.NeosPuppets;
 import com.neoloxal.neospuppets.client.PuppetModel;
 import com.neoloxal.neospuppets.puppets.CustomPuppetBlock;
 import com.neoloxal.neospuppets.puppets.CustomPuppetBlockEntity;
 import com.neoloxal.neospuppets.puppets.Puppet;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.geom.ModelLayerLocation;
-import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.block.ModelBlockRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
-import net.minecraft.client.resources.PlayerSkin;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 
@@ -24,15 +21,7 @@ import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 
 public class PuppetRenderer implements BlockEntityRenderer<CustomPuppetBlockEntity> {
-    public static final ModelLayerLocation PUPPET_LAYER = new ModelLayerLocation(
-            ResourceLocation.fromNamespaceAndPath("neospuppets", "puppet/generic/"), "skin"
-    );
-
     private final PuppetModel puppetModel;
-    private ModelPart skinPart;
-    private ModelPart outerLayerPart;
-
-    BlockEntityRendererProvider.Context BERContext;
 
     public PuppetRenderer(BlockEntityRendererProvider.Context context) {
         this.puppetModel = new PuppetModel(context.bakeLayer(PuppetModel.LAYER_LOCATION));
@@ -61,16 +50,22 @@ public class PuppetRenderer implements BlockEntityRenderer<CustomPuppetBlockEnti
                         });
                     blockEntity.markFetchPending(skinId);
                 } catch (IllegalArgumentException exception) {
-                    return;
+                    skinTexture = blockEntity.getCashedProfiles().get("default");
                 }
             }
-            return;
+            skinTexture = blockEntity.getCashedProfiles().get("default");
         }
 
         String currentPose = Puppet.POSES.get(blockEntity.getPose());
         puppetModel.applyPose(currentPose);
 
-        VertexConsumer buffer = bufferSource.getBuffer(RenderType.entityCutout(skinTexture));
+        //NeosPuppets.LOGGER.debug("About to render with texture " + skinTexture);
+        VertexConsumer buffer;
+        if (skinTexture != null) {
+            buffer = bufferSource.getBuffer(RenderType.entityCutout(skinTexture));
+        } else {
+            return;
+        }
 
         poseStack.pushPose();
         poseStack.translate(0.5, 0.5, 0.5);

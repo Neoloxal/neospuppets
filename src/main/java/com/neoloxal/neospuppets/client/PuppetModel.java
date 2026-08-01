@@ -58,17 +58,97 @@ public class PuppetModel {
 	}
 
 	public void applyPose(String pose) {
-		rightLeg.xRot = 0;
-		rightLeg.yRot = 0;
-		leftLeg.xRot = 0;
-		leftLeg.yRot = 0;
+		waist.setPos(0, 0, 0);
+		waist.setRotation(0, 0, 0);
+
+		head.setPos(0, 0, 0);
+		head.setRotation(0, 0, 0);
+
+		body.setPos(0, 0, 0);
+		body.setRotation(0, 0, 0);
+
+		rightArm.setPos(0, 0, 0);
+		rightArm.setRotation(0, 0, 0);
+
+		leftArm.setPos(0, 0, 0);
+		leftArm.setRotation(0, 0, 0);
+
+		rightLeg.setPos(0, 0, 0);
+		rightLeg.setRotation(0, 0, 0);
+
+		leftLeg.setPos(0, 0, 0);
+		leftLeg.setRotation(0, 0, 0);
 
 		switch (pose) {
 			case "sitting" -> {
 				rightLeg.xRot = (float) Math.toRadians(-90);
 				rightLeg.yRot = (float) Math.toRadians(-22.5);
+				rightLeg.setPos(1f, 0.5f, 0f);
 				leftLeg.xRot = (float) Math.toRadians(-90);
-				leftLeg.yRot = (float) Math.toRadians(22.5);
+				leftLeg.yRot = (float) Math.toRadians(22);
+				leftLeg.setPos(-1f, 0.5f, 0f);
+				waist.setPos(0f, 6.5f, 0f);
+				rightArm.setPos(3.5f, 0, 0);
+				//rightArm.zRot = (float) Math.toRadians(22.5);
+				leftArm.setPos(-3.5f, 0, 0);
+				//leftArm.zRot = (float) Math.toRadians(-22.5);
+			}
+			case "standing" -> {
+
+			}
+			case "waving" -> {
+
+			}
+			case "pointing" -> {
+
+			}
+			case "t_posing" -> {
+
+			}
+			case "jumping" -> {
+
+			}
+			case "balancing" -> {
+
+			}
+			case "jarona" -> {
+
+			}
+			case "fruit_bat" -> {
+
+			}
+			case "sad" -> {
+
+			}
+			case "crying" -> {
+
+			}
+			case "cool_sit" -> {
+
+			}
+			case "praying" -> {
+
+			}
+			case "laying" -> {
+
+			}
+			case "sliding" -> {
+
+			}
+			case "face_planting" -> {
+
+			}
+			case "floating" -> {
+
+			}
+			case "tape" -> {
+
+			}
+			case "hanging" -> {
+
+			}
+			case "horse" -> {
+
 			}
 		}
 	}

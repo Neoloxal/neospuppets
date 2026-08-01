@@ -1,8 +1,7 @@
 package com.neoloxal.neospuppets.puppets;
 
-import com.mojang.authlib.GameProfile;
 import com.neoloxal.neospuppets.NeosPuppets;
-import net.minecraft.client.resources.PlayerSkin;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
@@ -14,21 +13,32 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.CompletableFuture;
 
 public class CustomPuppetBlockEntity extends BlockEntity {
     private String skinId = "0699057e-febf-47a0-9b16-552a5b64dd92";
     private Set<String> pendingFetches = new HashSet<>();
     private Map<String, ResourceLocation> cashedProfiles = new HashMap<>();
+    private final List<String> FORCECASHEDPROFILES = List.of(
+            "default"
+    );
 
     private int pose = 0;
 
     public CustomPuppetBlockEntity(BlockPos pos, BlockState blockState) {
         super(NeosPuppets.CUSTOM_PUPPET_BLOCK_ENTITY.get(), pos, blockState);
+
+        CompletableFuture.supplyAsync(() ->
+                Minecraft.getInstance().getMinecraftSessionService().fetchProfile(UUID.fromString("0699057e-febf-47a0-9b16-552a5b64dd92"), false)
+        ).thenCompose(result ->
+                Minecraft.getInstance().getSkinManager().getOrLoad(result.profile())
+        ).thenAccept(skin -> {
+            Minecraft.getInstance().execute(() -> {
+                casheProfile("default", skin.texture());
+                clearFetchPending(skinId);
+            });
+        });
     }
 
     public int getPose() {
@@ -75,6 +85,15 @@ public class CustomPuppetBlockEntity extends BlockEntity {
     public void casheProfile(String skinUUID, ResourceLocation skinTexture) {
         cashedProfiles.put(skinUUID, skinTexture);
         NeosPuppets.LOGGER.debug("Cashing " + skinUUID + " as " + skinTexture);
+    }
+
+    public void decasheProfile(String skinUUID) {
+        if (!FORCECASHEDPROFILES.contains(skinUUID)) {
+            cashedProfiles.remove(skinUUID);
+            NeosPuppets.LOGGER.debug("Decashing " + skinUUID);
+        } else {
+            NeosPuppets.LOGGER.warn("Cannot decashe"  + skinUUID + "!");
+        }
     }
 
     @Override

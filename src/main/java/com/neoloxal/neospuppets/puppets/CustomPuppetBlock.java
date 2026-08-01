@@ -3,6 +3,7 @@ package com.neoloxal.neospuppets.puppets;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.RenderShape;
@@ -40,6 +41,17 @@ public class CustomPuppetBlock extends Block implements EntityBlock {
             direction = direction.getOpposite();
         }
         return this.defaultBlockState().setValue(BlockStateProperties.HORIZONTAL_FACING, direction);
+    }
+
+    @Override
+    protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
+        if (state.getBlock() != newState.getBlock()) {
+            if (level.getBlockEntity(pos) instanceof CustomPuppetBlockEntity blockEntity) {
+                blockEntity.decasheProfile(blockEntity.getSkinId());
+            }
+        }
+
+        super.onRemove(state, level, pos, newState, movedByPiston);
     }
 
     @Override
