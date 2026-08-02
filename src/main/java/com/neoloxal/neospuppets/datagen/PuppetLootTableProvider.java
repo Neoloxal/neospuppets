@@ -20,6 +20,8 @@ public class PuppetLootTableProvider extends BlockLootSubProvider {
     protected void generate() {
         dropSelf(NeosPuppets.PUPPET.get());
         dropOther(NeosPuppets.CUSTOM_PUPPET_BLOCK.get(), NeosPuppets.PUPPET_ITEM.get());
+
+        dropSelf(NeosPuppets.SOWING_TABLE.get());
     }
 
     @Override
