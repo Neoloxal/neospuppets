@@ -25,6 +25,9 @@ public class CustomPuppetBlockEntity extends BlockEntity {
     );
 
     private int pose = 0;
+    private float xPos = 0f;
+    private float yPos = 0f;
+    private float zPos = 0f;
 
     public CustomPuppetBlockEntity(BlockPos pos, BlockState blockState) {
         super(NeosPuppets.CUSTOM_PUPPET_BLOCK_ENTITY.get(), pos, blockState);
@@ -41,12 +44,52 @@ public class CustomPuppetBlockEntity extends BlockEntity {
         });
     }
 
+    public float getXPos() {
+        return xPos;
+    }
+
+    public void setXPos(float xPos) {
+        this.xPos = xPos;
+
+        this.setChanged();
+        if (!getLevel().isClientSide()) {
+            this.level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
+        }
+    }
+
+    public float getYPos() {
+        return yPos;
+    }
+
+    public void setYPos(float yPos) {
+        this.yPos = yPos;
+
+        this.setChanged();
+        if (!getLevel().isClientSide()) {
+            this.level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
+        }
+    }
+
+    public float getZPos() {
+        return zPos;
+    }
+
+    public void setZPos(float zPos) {
+        this.zPos = zPos;
+
+        this.setChanged();
+        if (!getLevel().isClientSide()) {
+            this.level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
+        }
+    }
+
     public int getPose() {
         return this.pose;
     }
 
     public void setPose(int pose) {
         this.pose = pose;
+
         this.setChanged();
         if (!getLevel().isClientSide()) {
             this.level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
@@ -99,14 +142,26 @@ public class CustomPuppetBlockEntity extends BlockEntity {
     @Override
     protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         tag.putInt("pose", this.pose);
+
         tag.putString("skinId", this.skinId);
+
+        tag.putFloat("xPos", this.xPos);
+        tag.putFloat("yPos", this.yPos);
+        tag.putFloat("zPos", this.zPos);
+
         super.saveAdditional(tag, registries);
     }
 
     @Override
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         this.pose = tag.getInt("pose");
+
         this.skinId = tag.getString("skinId");
+
+        this.xPos = tag.getFloat("xPos");
+        this.yPos = tag.getFloat("yPos");
+        this.zPos = tag.getFloat("zPos");
+
         super.loadAdditional(tag, registries);
     }
 
