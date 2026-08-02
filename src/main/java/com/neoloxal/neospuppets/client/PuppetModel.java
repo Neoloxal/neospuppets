@@ -93,11 +93,11 @@ public class PuppetModel {
 
             this.rightLeg.setPos(-1.0F, 14.0F, 0.0F);
             this.rightLeg.xRot = radians(-90.0F);
-            this.rightLeg.yRot = radians(-22.5F);
+            this.rightLeg.yRot = radians(22.5F);
 
             this.leftLeg.setPos(1.0F, 14.0F, 0.0F);
             this.leftLeg.xRot = radians(-90.0F);
-            this.leftLeg.yRot = radians(22.5F);
+            this.leftLeg.yRot = radians(-22.5F);
         }
     }
 

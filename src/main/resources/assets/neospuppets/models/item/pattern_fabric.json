@@ -1,6 +1,14 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "minecraft:item/paper"
-  }
+    "layer0": "neospuppets:item/empty_pattern_fabric"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "neospuppets:bound": 1.0
+      },
+      "model": "neospuppets:item/filled_pattern_fabric"
+    }
+  ]
 }

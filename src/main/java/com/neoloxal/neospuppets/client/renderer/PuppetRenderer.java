@@ -31,9 +31,9 @@ public class PuppetRenderer implements BlockEntityRenderer<CustomPuppetBlockEnti
     public void render(CustomPuppetBlockEntity blockEntity, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
         String skinId = blockEntity.getSkinId();
 
-        ResourceLocation skinTexture = blockEntity.getCashedProfiles().get(skinId);
+        ResourceLocation skinTexture = NeosPuppets.getCashedProfiles().get(skinId);
         if (skinTexture == null) {
-            if (!blockEntity.isFetchPending(skinId)) {
+            if (!NeosPuppets.isFetchPending(skinId)) {
                 GameProfile profile;
                 //profile = new GameProfile(UUID.fromString("0699057e-febf-47a0-9b16-552a5b64dd92"), "");
                 try {
@@ -44,16 +44,16 @@ public class PuppetRenderer implements BlockEntityRenderer<CustomPuppetBlockEnti
                             Minecraft.getInstance().getSkinManager().getOrLoad(result.profile())
                     ).thenAccept(skin -> {
                             Minecraft.getInstance().execute(() -> {
-                                blockEntity.casheProfile(skinId, skin.texture());
-                                blockEntity.clearFetchPending(skinId);
+                                NeosPuppets.casheProfile(skinId, skin.texture());
+                                NeosPuppets.clearFetchPending(skinId);
                             });
                         });
-                    blockEntity.markFetchPending(skinId);
+                    NeosPuppets.markFetchPending(skinId);
                 } catch (IllegalArgumentException exception) {
-                    skinTexture = blockEntity.getCashedProfiles().get("default");
+                    skinTexture = NeosPuppets.getCashedProfiles().get("default");
                 }
             }
-            skinTexture = blockEntity.getCashedProfiles().get("default");
+            skinTexture = NeosPuppets.getCashedProfiles().get("default");
         }
 
         String currentPose = Puppet.POSES.get(blockEntity.getPose());

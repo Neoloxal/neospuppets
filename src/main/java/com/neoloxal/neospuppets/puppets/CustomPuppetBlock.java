@@ -66,7 +66,7 @@ public class CustomPuppetBlock extends Block implements EntityBlock {
     protected void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston) {
         if (state.getBlock() != newState.getBlock()) {
             if (level.getBlockEntity(pos) instanceof CustomPuppetBlockEntity blockEntity) {
-                blockEntity.decasheProfile(blockEntity.getSkinId());
+                NeosPuppets.decasheProfile(blockEntity.getSkinId());
             }
         }
 

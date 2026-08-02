@@ -18,11 +18,6 @@ import java.util.concurrent.CompletableFuture;
 
 public class CustomPuppetBlockEntity extends BlockEntity {
     private String skinId = "0699057e-febf-47a0-9b16-552a5b64dd92";
-    private Set<String> pendingFetches = new HashSet<>();
-    private Map<String, ResourceLocation> cashedProfiles = new HashMap<>();
-    private final List<String> FORCECASHEDPROFILES = List.of(
-            "default"
-    );
 
     private int pose = 0;
     private float xPos = 0f;
@@ -38,8 +33,8 @@ public class CustomPuppetBlockEntity extends BlockEntity {
                 Minecraft.getInstance().getSkinManager().getOrLoad(result.profile())
         ).thenAccept(skin -> {
             Minecraft.getInstance().execute(() -> {
-                casheProfile("default", skin.texture());
-                clearFetchPending(skinId);
+                NeosPuppets.casheProfile("default", skin.texture());
+                NeosPuppets.clearFetchPending(skinId);
             });
         });
     }
@@ -106,36 +101,6 @@ public class CustomPuppetBlockEntity extends BlockEntity {
         this.setChanged();
         if (!getLevel().isClientSide()) {
             this.level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
-        }
-    }
-
-    public boolean isFetchPending(String skinId) {
-        return pendingFetches.contains(skinId);
-    }
-
-    public void markFetchPending(String skinId) {
-        pendingFetches.add(skinId);
-    }
-
-    public void clearFetchPending(String skinId) {
-        pendingFetches.remove(skinId);
-    }
-
-    public Map<String, ResourceLocation> getCashedProfiles() {
-        return this.cashedProfiles;
-    }
-
-    public void casheProfile(String skinUUID, ResourceLocation skinTexture) {
-        cashedProfiles.put(skinUUID, skinTexture);
-        NeosPuppets.LOGGER.debug("Cashing " + skinUUID + " as " + skinTexture);
-    }
-
-    public void decasheProfile(String skinUUID) {
-        if (!FORCECASHEDPROFILES.contains(skinUUID)) {
-            cashedProfiles.remove(skinUUID);
-            NeosPuppets.LOGGER.debug("Decashing " + skinUUID);
-        } else {
-            NeosPuppets.LOGGER.warn("Cannot decashe"  + skinUUID + "!");
         }
     }
 

@@ -10,6 +10,7 @@ import com.neoloxal.neospuppets.puppets.CustomPuppetBlock;
 import com.neoloxal.neospuppets.puppets.Puppet;
 import com.neoloxal.neospuppets.puppets.PuppetManipulator;
 import io.netty.buffer.ByteBuf;
+import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.network.codec.ByteBufCodecs;
@@ -19,8 +20,10 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.ModelEvent;
+import net.neoforged.neoforge.client.event.RegisterItemDecorationsEvent;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import org.slf4j.Logger;
 
@@ -44,6 +47,7 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
+import java.util.*;
 import java.util.function.Supplier;
 
 // The value here should match an entry in the META-INF/neoforge.mods.toml file
@@ -119,6 +123,40 @@ public class NeosPuppets {
                     .networkSynchronized(SKIN_RECORD_STREAM_CODEC)
     );
 
+    private static Set<String> pendingFetches = new HashSet<>();
+    private static Map<String, ResourceLocation> cashedProfiles = new HashMap<>();
+    private static final List<String> FORCECASHEDPROFILES = List.of(
+            "default"
+    );
+
+    public static boolean isFetchPending(String skinId) {
+        return pendingFetches.contains(skinId);
+    }
+
+    public static void markFetchPending(String skinId) {
+        pendingFetches.add(skinId);
+    }
+
+    public static void clearFetchPending(String skinId) {
+        pendingFetches.remove(skinId);
+    }
+
+    public static Map<String, ResourceLocation> getCashedProfiles() {return cashedProfiles;}
+
+    public static void casheProfile(String skinUUID, ResourceLocation skinTexture) {
+        cashedProfiles.put(skinUUID, skinTexture);
+        NeosPuppets.LOGGER.debug("Cashing " + skinUUID + " as " + skinTexture);
+    }
+
+    public static void decasheProfile(String skinUUID) {
+        if (!FORCECASHEDPROFILES.contains(skinUUID)) {
+            cashedProfiles.remove(skinUUID);
+            LOGGER.debug("Decashing " + skinUUID);
+        } else {
+            LOGGER.warn("Cannot decashe"  + skinUUID + "!");
+        }
+    }
+
     // The constructor for the mod class is the first code run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
     public NeosPuppets(IEventBus modEventBus, ModContainer modContainer) {
@@ -178,6 +216,15 @@ public class NeosPuppets {
         @SubscribeEvent
         public static void registerLayerDefinitions(EntityRenderersEvent.RegisterLayerDefinitions event) {
             event.registerLayerDefinition(PuppetModel.LAYER_LOCATION, PuppetModel::createBodyLayer);
+        }
+
+        @SubscribeEvent
+        public static void registerItemProperties(FMLClientSetupEvent event) {
+            event.enqueueWork(() -> {
+                ItemProperties.register(PATTERN_FABRIC.get(),
+                        ResourceLocation.fromNamespaceAndPath("neospuppets", "bound"),
+                        (stack, level, entity, seed) -> stack.has(NeosPuppets.SKIN_COMPONENT) ? 1.0f : 0.0f);
+            });
         }
     }
 }

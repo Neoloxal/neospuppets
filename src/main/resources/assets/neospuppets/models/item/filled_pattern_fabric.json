@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "neospuppets:item/filled_pattern_fabric"
+  }
+}
