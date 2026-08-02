@@ -1,12 +1,18 @@
 package com.neoloxal.neospuppets;
 
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.neoloxal.neospuppets.client.PuppetModel;
 import com.neoloxal.neospuppets.client.renderer.PuppetRenderer;
 import com.neoloxal.neospuppets.puppets.CustomPuppetBlockEntity;
 import com.neoloxal.neospuppets.puppets.CustomPuppetBlock;
 import com.neoloxal.neospuppets.puppets.Puppet;
 import com.neoloxal.neospuppets.puppets.PuppetManipulator;
+import io.netty.buffer.ByteBuf;
 import net.minecraft.client.resources.model.ModelResourceLocation;
+import net.minecraft.core.component.DataComponentType;
+import net.minecraft.network.codec.ByteBufCodecs;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -14,6 +20,7 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.ModelEvent;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -52,6 +59,8 @@ public class NeosPuppets {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES =
             DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, NeosPuppets.MODID);
 
+    public static final DeferredRegister.DataComponents DATA_COMPONENTS = DeferredRegister.createDataComponents(Registries.DATA_COMPONENT_TYPE, NeosPuppets.MODID);
+
     public static final DeferredBlock<Block> PUPPET = BLOCKS.register("puppet", () -> new Puppet(BlockBehaviour.Properties.of()
             .sound(SoundType.WOOD)
             .mapColor(MapColor.WOOD)
@@ -78,16 +87,39 @@ public class NeosPuppets {
             .durability(250)
     ));
 
+    public static final DeferredItem<Item> PATTERN_FABRIC = ITEMS.register("pattern_fabric", () -> new PatternFabric(new Item.Properties()));
+
+    public record skinRecord(String skinID, String skinName) {};
+
+    public static final Codec<skinRecord> SKIN_CODEC = RecordCodecBuilder.create(instance ->
+            instance.group(
+                    Codec.STRING.fieldOf("skinId").forGetter(skinRecord::skinID),
+                    Codec.STRING.fieldOf("skinName").forGetter(skinRecord::skinName)
+            ).apply(instance, skinRecord::new)
+    );
+
+    public static final StreamCodec<ByteBuf, skinRecord> SKIN_RECORD_STREAM_CODEC = StreamCodec.composite(
+            ByteBufCodecs.STRING_UTF8, skinRecord::skinID,
+            ByteBufCodecs.STRING_UTF8, skinRecord::skinName,
+            skinRecord::new
+    );
+
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<skinRecord>> SKIN_COMPONENT = DATA_COMPONENTS.registerComponentType(
+            "skin",
+            builder -> builder
+                    .persistent(SKIN_CODEC)
+                    .networkSynchronized(SKIN_RECORD_STREAM_CODEC)
+    );
+
     // The constructor for the mod class is the first code run when your mod is loaded.
     // FML will recognize some parameter types like IEventBus or ModContainer and pass them in automatically.
     public NeosPuppets(IEventBus modEventBus, ModContainer modContainer) {
         // Register the commonSetup method for modloading
 
-        // Register the Deferred Register to the mod event bus so blocks get registered
         BLOCKS.register(modEventBus);
-        // Register the Deferred Register to the mod event bus so items get registered
         ITEMS.register(modEventBus);
         BLOCK_ENTITY_TYPES.register(modEventBus);
+        DATA_COMPONENTS.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (NeosPuppets) to respond directly to events.
@@ -107,6 +139,7 @@ public class NeosPuppets {
             event.accept(PUPPET_ITEM);
         } else if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
             event.accept(PUPPET_MANIPULATOR);
+            event.accept(PATTERN_FABRIC);
         } else if (event.getTabKey() == CreativeModeTabs.OP_BLOCKS) {
             event.accept(CUSTOM_PUPPET_ITEM);
         }
