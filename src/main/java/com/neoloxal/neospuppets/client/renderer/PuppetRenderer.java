@@ -79,7 +79,8 @@ public class PuppetRenderer implements BlockEntityRenderer<CustomPuppetBlockEnti
         };
         poseStack.mulPose(Axis.YP.rotationDegrees(rotationDegrees));
         poseStack.translate(-0.5, -0.5, -0.5);
-        poseStack.translate(0.5, 0, 0.5);
+        poseStack.translate(0.5, 1, 0.5);
+        poseStack.scale(-1, -1, 1);
         poseStack.translate(blockEntity.getXPos(), blockEntity.getYPos(), blockEntity.getZPos());
 
         puppetModel.getWaist().render(poseStack, buffer, packedLight, packedOverlay);

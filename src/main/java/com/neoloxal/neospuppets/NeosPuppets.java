@@ -2,6 +2,7 @@ package com.neoloxal.neospuppets;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import com.neoloxal.neospuppets.blocks.SowingTable;
 import com.neoloxal.neospuppets.client.PuppetModel;
 import com.neoloxal.neospuppets.client.renderer.PuppetRenderer;
 import com.neoloxal.neospuppets.puppets.CustomPuppetBlockEntity;
@@ -83,6 +84,13 @@ public class NeosPuppets {
             () -> BlockEntityType.Builder.of(
                     CustomPuppetBlockEntity::new, CUSTOM_PUPPET_BLOCK.get()).build(null));
 
+    public static final DeferredBlock<Block> SOWING_TABLE = BLOCKS.register("sowing_table", () -> new SowingTable(BlockBehaviour.Properties.of()
+            .sound(SoundType.WOOD)
+            .mapColor(MapColor.WOOD)
+            .strength(4f, 3.0f)
+    ));
+    public static final DeferredItem<Item> SOWING_TABLE_ITEM = ITEMS.register("sowing_table", () -> new BlockItem(SOWING_TABLE.get(), new Item.Properties()));
+
     public static final DeferredItem<Item> PUPPET_MANIPULATOR = ITEMS.register("puppet_manipulator", () -> new PuppetManipulator(new Item.Properties()
             .durability(250)
     ));
@@ -137,6 +145,7 @@ public class NeosPuppets {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
             event.accept(PUPPET_ITEM);
+            event.accept(SOWING_TABLE_ITEM);
         } else if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
             event.accept(PUPPET_MANIPULATOR);
             event.accept(PATTERN_FABRIC);

@@ -6,6 +6,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 
@@ -34,6 +35,12 @@ public class RecipeProvider extends net.minecraft.data.recipes.RecipeProvider {
                 .define('/', Items.STICK)
                 .define('B', Items.COBBLESTONE)
                 .unlockedBy("has_string", has(Items.STRING)).save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, NeosPuppets.SOWING_TABLE_ITEM.get())
+                .requires(Items.LOOM)
+                .requires(Items.PAPER)
+                .requires(Items.INK_SAC)
+                .unlockedBy("has_loom", has(Items.LOOM)).save(recipeOutput);
 
         super.buildRecipes(recipeOutput);
     }
