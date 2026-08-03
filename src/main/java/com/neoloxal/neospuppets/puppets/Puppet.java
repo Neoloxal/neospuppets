@@ -4,6 +4,8 @@ import com.mojang.serialization.MapCodec;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.BlockParticleOption;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -18,6 +20,7 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
@@ -163,6 +166,15 @@ public class Puppet extends HorizontalDirectionalBlock {
                 player.playNotifySound(SoundEvents.SHEEP_SHEAR, SoundSource.BLOCKS, 1.0f, 1.0f);
                 player.getItemInHand(hand).hurtAndBreak(1, ((ServerLevel) level), player,
                         item1 -> player.onEquippedItemBroken(item1, EquipmentSlot.MAINHAND));
+
+                BlockItem blockItem = (BlockItem) REVERSE_MAP.get(currentSkin);
+                ((ServerLevel) level).getLevel().sendParticles(
+                        new BlockParticleOption(ParticleTypes.BLOCK, blockItem.getBlock().defaultBlockState()),
+                        pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5,
+                        32,
+                        0.2, 0.2, 0.2,
+                        0.1
+                );
 
                 return ItemInteractionResult.SUCCESS;
             }

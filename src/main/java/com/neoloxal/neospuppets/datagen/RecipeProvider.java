@@ -42,6 +42,11 @@ public class RecipeProvider extends net.minecraft.data.recipes.RecipeProvider {
                 .requires(Items.INK_SAC)
                 .unlockedBy("has_loom", has(Items.LOOM)).save(recipeOutput);
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, NeosPuppets.PATTERN_FABRIC.get())
+                .requires(Items.STICK)
+                .requires(ItemTags.WOOL)
+                .unlockedBy("has_wool", has(ItemTags.WOOL)).save(recipeOutput);
+
         super.buildRecipes(recipeOutput);
     }
 }

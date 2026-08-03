@@ -16,6 +16,7 @@ import net.minecraft.core.component.DataComponentType;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.api.distmarker.Dist;
@@ -30,9 +31,6 @@ import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
 
 import net.minecraft.core.registries.Registries;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
@@ -81,6 +79,7 @@ public class NeosPuppets {
             .strength(2.0F, 3.0F)
             .noOcclusion()
             .noCollission()
+            .noTerrainParticles()
     ));
     public static final DeferredItem<Item> CUSTOM_PUPPET_ITEM = ITEMS.register("custom_puppet", () -> new BlockItem(CUSTOM_PUPPET_BLOCK.get(), new Item.Properties()));
     public static final Supplier<BlockEntityType<CustomPuppetBlockEntity>> CUSTOM_PUPPET_BLOCK_ENTITY = BLOCK_ENTITY_TYPES.register(
@@ -183,10 +182,12 @@ public class NeosPuppets {
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
             event.accept(PUPPET_ITEM);
-            event.accept(SOWING_TABLE_ITEM);
+            event.insertAfter(Items.LOOM.getDefaultInstance(), SOWING_TABLE_ITEM.asItem().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
         } else if (event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
-            event.accept(PUPPET_MANIPULATOR);
-            event.accept(PATTERN_FABRIC);
+            event.insertAfter(Items.SHEARS.getDefaultInstance(), PUPPET_MANIPULATOR.asItem().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+            event.insertAfter(Items.WRITABLE_BOOK.getDefaultInstance(), PATTERN_FABRIC.asItem().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+        } else if (event.getTabKey() == CreativeModeTabs.INGREDIENTS) {
+            event.insertAfter(Items.GUSTER_BANNER_PATTERN.getDefaultInstance(), PATTERN_FABRIC.asItem().getDefaultInstance(), CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
         } else if (event.getTabKey() == CreativeModeTabs.OP_BLOCKS) {
             event.accept(CUSTOM_PUPPET_ITEM);
         }

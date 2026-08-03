@@ -1,15 +1,14 @@
 package com.neoloxal.neospuppets.puppets;
 
-import com.mojang.authlib.GameProfile;
 import com.neoloxal.neospuppets.NeosPuppets;
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.BlockParticleOption;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -19,6 +18,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.EntityBlock;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -68,6 +68,16 @@ public class CustomPuppetBlock extends Block implements EntityBlock {
             if (level.getBlockEntity(pos) instanceof CustomPuppetBlockEntity blockEntity) {
                 NeosPuppets.decasheProfile(blockEntity.getSkinId());
             }
+        }
+
+        if (level instanceof ServerLevel serverLevel) {
+            serverLevel.sendParticles(
+                    new BlockParticleOption(ParticleTypes.BLOCK, Blocks.OAK_PLANKS.defaultBlockState()),
+                    pos.getX() + 0.5, pos.getY() + 0.5, pos.getZ() + 0.5,
+                    32,
+                    0.2, 0.2, 0.2,
+                    0.1
+            );
         }
 
         super.onRemove(state, level, pos, newState, movedByPiston);
