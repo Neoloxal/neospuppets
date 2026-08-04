@@ -67,7 +67,7 @@ public class PuppetManipulator extends Item {
                     context.getItemInHand().hurtAndBreak(1, ((ServerLevel) level), player,
                             item -> player.onEquippedItemBroken(item, EquipmentSlot.MAINHAND));
 
-                    player.displayClientMessage(Component.translatable("messages.neospuppets.puppet_pose_changed", (newPose + 1), (Puppet.MAX_POSE + 1)), true);
+                    player.displayClientMessage(Component.translatable("message.neospuppets.puppet_pose_changed", (newPose + 1), (Puppet.MAX_POSE + 1)), true);
                     player.playNotifySound(SoundEvents.WOODEN_BUTTON_CLICK_ON, SoundSource.BLOCKS, 1f, 1f);
                     return InteractionResult.SUCCESS;
                 } else {

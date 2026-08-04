@@ -111,7 +111,7 @@ public class CustomPuppetBlock extends Block implements EntityBlock {
                             String skinName = profileResult.profile().getName();
                             level.getServer().execute(() -> {
                                 ItemStack itemStack = new ItemStack(NeosPuppets.PATTERN_FABRIC.get());
-                                itemStack.set(NeosPuppets.SKIN_COMPONENT, new NeosPuppets.skinRecord(skinId, skinName));
+                                itemStack.set(NeosPuppets.SKIN_COMPONENT, skinName);
                                 ItemEntity itemEntity = new ItemEntity(level, hitResult.getBlockPos().getX(), hitResult.getBlockPos().getY(), hitResult.getBlockPos().getZ(), itemStack);
                                 itemEntity.setDeltaMovement(0.0, 0.2, 0.0);
 

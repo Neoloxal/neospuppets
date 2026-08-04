@@ -19,7 +19,8 @@
   "tooltip.neospuppets.pattern_fabric.bound": "Bound to player: §d§n%s",
 
 
-  "messages.neospuppets.puppet_pose_changed": "Changed puppet's pose to %s of %s",
+  "message.neospuppets.puppet_pose_changed": "Changed puppet's pose to %s of %s",
 
-  "messages.neospuppets.pattern_fabric_bing_warning": "Bind to a player first!"
+  "message.neospuppets.pattern_fabric_bing_warning": "Bind to a player first!",
+  "message.neospuppets.pattern_fabric_unknown_profile_warning": "Unknown Profile!"
 }

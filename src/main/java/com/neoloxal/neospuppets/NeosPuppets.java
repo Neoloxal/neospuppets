@@ -115,11 +115,10 @@ public class NeosPuppets {
             skinRecord::new
     );
 
-    public static final DeferredHolder<DataComponentType<?>, DataComponentType<skinRecord>> SKIN_COMPONENT = DATA_COMPONENTS.registerComponentType(
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<String>> SKIN_COMPONENT = DATA_COMPONENTS.registerComponentType(
             "skin",
             builder -> builder
-                    .persistent(SKIN_CODEC)
-                    .networkSynchronized(SKIN_RECORD_STREAM_CODEC)
+                    .persistent(Codec.STRING)
     );
 
     private static Set<String> pendingFetches = new HashSet<>();
