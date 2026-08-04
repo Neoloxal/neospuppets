@@ -94,6 +94,10 @@ public class CustomPuppetBlock extends Block implements EntityBlock {
             if (!level.isClientSide()) {
                 CustomPuppetBlockEntity blockEntity = (CustomPuppetBlockEntity) level.getBlockEntity(pos);
 
+                if (!player.isCreative()) {
+                    spawnItem(level, pos);
+                }
+
                 level.setBlockAndUpdate(pos, NeosPuppets.PUPPET.get().defaultBlockState()
                         .setValue(BlockStateProperties.HORIZONTAL_FACING, state.getValue(BlockStateProperties.HORIZONTAL_FACING))
                         .setValue(Puppet.POSE, blockEntity.getPose())
@@ -103,29 +107,40 @@ public class CustomPuppetBlock extends Block implements EntityBlock {
                 player.getItemInHand(hand).hurtAndBreak(1, ((ServerLevel) level), player,
                         item -> player.onEquippedItemBroken(item, EquipmentSlot.MAINHAND));
 
-                String skinId = blockEntity.getSkinId();
-
-                CompletableFuture.supplyAsync(() ->
-                        level.getServer().getSessionService().fetchProfile(UUID.fromString(skinId), false)
-                ).thenAccept(profileResult -> {
-                            String skinName = profileResult.profile().getName();
-                            level.getServer().execute(() -> {
-                                ItemStack itemStack = new ItemStack(NeosPuppets.PATTERN_FABRIC.get());
-                                itemStack.set(NeosPuppets.SKIN_COMPONENT, skinName);
-                                ItemEntity itemEntity = new ItemEntity(level, hitResult.getBlockPos().getX(), hitResult.getBlockPos().getY(), hitResult.getBlockPos().getZ(), itemStack);
-                                itemEntity.setDeltaMovement(0.0, 0.2, 0.0);
-
-                                if (!player.isCreative()) {
-                                    level.addFreshEntity(itemEntity);
-                                }
-                            });
-                        });
-
                 player.playNotifySound(SoundEvents.SHEEP_SHEAR, SoundSource.BLOCKS, 1f, 1f);
             }
             return ItemInteractionResult.SUCCESS;
         }
 
         return ItemInteractionResult.FAIL;
+    }
+
+    @Override
+    public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
+        if (!player.isCreative()) {
+            spawnItem(level, pos);
+        }
+
+        return super.playerWillDestroy(level, pos, state, player);
+    }
+
+    protected static void spawnItem(Level level, BlockPos pos) {
+        CustomPuppetBlockEntity blockEntity = (CustomPuppetBlockEntity) level.getBlockEntity(pos);
+
+        String skinId = blockEntity.getSkinId();
+
+        CompletableFuture.supplyAsync(() ->
+                level.getServer().getSessionService().fetchProfile(UUID.fromString(skinId), false)
+        ).thenAccept(profileResult -> {
+            String skinName = profileResult.profile().getName();
+            level.getServer().execute(() -> {
+                ItemStack itemStack = new ItemStack(NeosPuppets.PATTERN_FABRIC.get());
+                itemStack.set(NeosPuppets.SKIN_COMPONENT, skinName);
+                ItemEntity itemEntity = new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), itemStack);
+                itemEntity.setDeltaMovement(0.0, 0.2, 0.0);
+
+                level.addFreshEntity(itemEntity);
+            });
+        });
     }
 }

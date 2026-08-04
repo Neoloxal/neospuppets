@@ -4,6 +4,7 @@ import com.mojang.serialization.MapCodec;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Position;
 import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
@@ -65,6 +66,29 @@ public class Puppet extends HorizontalDirectionalBlock {
             "horse"
     );
 
+    record SkinTransition(Skin fromSkin, Item item, Skin toSkin) {}
+
+    private static final List<SkinTransition> SKIN_TRANSITIONS = List.of(
+            new SkinTransition(Skin.PUPPET, Items.CYAN_WOOL, Skin.STEVE),
+            new SkinTransition(Skin.PUPPET, Items.WHITE_WOOL, Skin.ALEX),
+            new SkinTransition(Skin.PUPPET, Items.ORANGE_WOOL, Skin.ARI),
+            new SkinTransition(Skin.PUPPET, Items.MAGENTA_WOOL, Skin.EFE),
+            new SkinTransition(Skin.PUPPET, Items.PURPLE_WOOL, Skin.KAI),
+            new SkinTransition(Skin.PUPPET, Items.YELLOW_WOOL, Skin.MAKENA),
+            new SkinTransition(Skin.PUPPET, Items.GREEN_WOOL, Skin.NOOR),
+            new SkinTransition(Skin.PUPPET, Items.LIME_WOOL, Skin.SUNNY),
+            new SkinTransition(Skin.PUPPET, Items.RED_WOOL, Skin.ZURI)
+    );
+
+    private final Map<Skin, Map<Item, Skin>> FORDWARD_MAP = SKIN_TRANSITIONS.stream()
+            .collect(Collectors.groupingBy(
+                    SkinTransition::fromSkin,
+                    Collectors.toMap(SkinTransition::item, SkinTransition::toSkin)
+            ));
+
+    private static final Map<Skin, Item> REVERSE_MAP = SKIN_TRANSITIONS.stream()
+            .collect(Collectors.toMap(SkinTransition::toSkin, SkinTransition::item));
+
     public Puppet(Properties properties) {
         super(properties);
         this.registerDefaultState(getStateDefinition().any()
@@ -107,28 +131,6 @@ public class Puppet extends HorizontalDirectionalBlock {
 
     @Override
     protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        record SkinTransition(Skin fromSkin, Item item, Skin toSkin) {}
-
-        final List<SkinTransition> SKIN_TRANSITIONS = List.of(
-                new SkinTransition(Skin.PUPPET, Items.CYAN_WOOL, Skin.STEVE),
-                new SkinTransition(Skin.PUPPET, Items.WHITE_WOOL, Skin.ALEX),
-                new SkinTransition(Skin.PUPPET, Items.ORANGE_WOOL, Skin.ARI),
-                new SkinTransition(Skin.PUPPET, Items.MAGENTA_WOOL, Skin.EFE),
-                new SkinTransition(Skin.PUPPET, Items.PURPLE_WOOL, Skin.KAI),
-                new SkinTransition(Skin.PUPPET, Items.YELLOW_WOOL, Skin.MAKENA),
-                new SkinTransition(Skin.PUPPET, Items.GREEN_WOOL, Skin.NOOR),
-                new SkinTransition(Skin.PUPPET, Items.LIME_WOOL, Skin.SUNNY),
-                new SkinTransition(Skin.PUPPET, Items.RED_WOOL, Skin.ZURI)
-        );
-
-        final Map<Skin, Map<Item, Skin>> FORDWARD_MAP = SKIN_TRANSITIONS.stream()
-                .collect(Collectors.groupingBy(
-                        SkinTransition::fromSkin,
-                        Collectors.toMap(SkinTransition::item, SkinTransition::toSkin)
-                ));
-
-        final Map<Skin, Item> REVERSE_MAP = SKIN_TRANSITIONS.stream()
-                .collect(Collectors.toMap(SkinTransition::toSkin, SkinTransition::item));
 
         Item item = stack.getItem();
         Skin currentSkin = state.getValue(SKIN);
@@ -155,12 +157,8 @@ public class Puppet extends HorizontalDirectionalBlock {
 
                 level.setBlockAndUpdate(hitResult.getBlockPos(), state.setValue(SKIN, Skin.PUPPET));
 
-                ItemStack itemStack = new ItemStack(REVERSE_MAP.get(currentSkin), 1);
-                ItemEntity itemEntity = new ItemEntity(level, hitResult.getBlockPos().getX(), hitResult.getBlockPos().getY(), hitResult.getBlockPos().getZ(), itemStack);
-                itemEntity.setDeltaMovement(0.0, 0.2, 0.0);
-
                 if (!player.isCreative()) {
-                    level.addFreshEntity(itemEntity);
+                    spawnItem(hitResult.getBlockPos(), level, state);
                 }
 
                 player.playNotifySound(SoundEvents.SHEEP_SHEAR, SoundSource.BLOCKS, 1.0f, 1.0f);
@@ -185,6 +183,23 @@ public class Puppet extends HorizontalDirectionalBlock {
             return ItemInteractionResult.SUCCESS;
         }
         return ItemInteractionResult.FAIL;
+    }
+
+    @Override
+    protected void spawnAfterBreak(BlockState state, ServerLevel level, BlockPos pos, ItemStack stack, boolean dropExperience) {
+        if (state.getValue(SKIN) != Skin.PUPPET) {
+            spawnItem(pos, level, state);
+        }
+
+        super.spawnAfterBreak(state, level, pos, stack, dropExperience);
+    }
+
+    protected static void spawnItem(BlockPos pos, Level level, BlockState state) {
+        ItemStack itemStack = new ItemStack(REVERSE_MAP.get(state.getValue(SKIN)), 1);
+        ItemEntity itemEntity = new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), itemStack);
+        itemEntity.setDeltaMovement(0.0, 0.2, 0.0);
+
+        level.addFreshEntity(itemEntity);
     }
 }
 
