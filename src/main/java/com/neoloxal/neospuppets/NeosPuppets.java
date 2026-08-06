@@ -16,6 +16,7 @@ import net.minecraft.core.component.DataComponentType;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -64,6 +65,8 @@ public class NeosPuppets {
 
     public static final DeferredRegister.DataComponents DATA_COMPONENTS = DeferredRegister.createDataComponents(Registries.DATA_COMPONENT_TYPE, NeosPuppets.MODID);
 
+    public static final DeferredRegister<MenuType<?>> MENU_TYPES = DeferredRegister.create(Registries.MENU, MODID);
+
     public static final DeferredBlock<Block> PUPPET = BLOCKS.register("puppet", () -> new Puppet(BlockBehaviour.Properties.of()
             .sound(SoundType.WOOD)
             .mapColor(MapColor.WOOD)
@@ -96,29 +99,22 @@ public class NeosPuppets {
 
     public static final DeferredItem<Item> PUPPET_MANIPULATOR = ITEMS.register("puppet_manipulator", () -> new PuppetManipulator(new Item.Properties()
             .durability(250)
+            .stacksTo(1)
     ));
 
     public static final DeferredItem<Item> PATTERN_FABRIC = ITEMS.register("pattern_fabric", () -> new PatternFabric(new Item.Properties()));
-
-    public record skinRecord(String skinID, String skinName) {};
-
-    public static final Codec<skinRecord> SKIN_CODEC = RecordCodecBuilder.create(instance ->
-            instance.group(
-                    Codec.STRING.fieldOf("skinId").forGetter(skinRecord::skinID),
-                    Codec.STRING.fieldOf("skinName").forGetter(skinRecord::skinName)
-            ).apply(instance, skinRecord::new)
-    );
-
-    public static final StreamCodec<ByteBuf, skinRecord> SKIN_RECORD_STREAM_CODEC = StreamCodec.composite(
-            ByteBufCodecs.STRING_UTF8, skinRecord::skinID,
-            ByteBufCodecs.STRING_UTF8, skinRecord::skinName,
-            skinRecord::new
-    );
 
     public static final DeferredHolder<DataComponentType<?>, DataComponentType<String>> SKIN_COMPONENT = DATA_COMPONENTS.registerComponentType(
             "skin",
             builder -> builder
                     .persistent(Codec.STRING)
+    );
+
+    public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> POSE_CLIPBOARD_COMPONENT = DATA_COMPONENTS.registerComponentType(
+            "pose_clipboard",
+            builder -> builder
+                    .persistent(Codec.INT)
+                    .networkSynchronized(ByteBufCodecs.VAR_INT)
     );
 
     private static Set<String> pendingFetches = new HashSet<>();
@@ -164,6 +160,7 @@ public class NeosPuppets {
         ITEMS.register(modEventBus);
         BLOCK_ENTITY_TYPES.register(modEventBus);
         DATA_COMPONENTS.register(modEventBus);
+        MENU_TYPES.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (NeosPuppets) to respond directly to events.

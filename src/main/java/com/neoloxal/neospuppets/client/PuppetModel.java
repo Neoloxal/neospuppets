@@ -90,13 +90,13 @@ public class PuppetModel {
     public void applyPose(String pose) {
         resetStandingPose();
         if (pose.equals("sitting")) {
-            this.waist.setPos(0.0F, 5.0F, 0.0F);
+            this.waist.setPos(0.0F, 6.0F, 0.0F);
 
-            this.rightLeg.setPos(-1.0F, 14.0F, 0.0F);
+            this.rightLeg.setPos(-1.0F, 15.0F, 0.0F);
             this.rightLeg.xRot = radians(-90.0F);
             this.rightLeg.yRot = radians(22.5F);
 
-            this.leftLeg.setPos(1.0F, 14.0F, 0.0F);
+            this.leftLeg.setPos(1.0F, 15.0F, 0.0F);
             this.leftLeg.xRot = radians(-90.0F);
             this.leftLeg.yRot = radians(-22.5F);
         }

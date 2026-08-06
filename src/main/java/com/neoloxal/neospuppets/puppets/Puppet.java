@@ -11,6 +11,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
@@ -150,7 +151,8 @@ public class Puppet extends HorizontalDirectionalBlock {
                     }
                 }
             }
-            if (item.asItem() == Items.SHEARS && hand == InteractionHand.MAIN_HAND) {
+
+            if (item.asItem() == Items.SHEARS && hand == InteractionHand.MAIN_HAND && currentSkin != Skin.PUPPET) {
                 if (!REVERSE_MAP.containsKey(currentSkin)) {
                     return ItemInteractionResult.FAIL;
                 }
@@ -180,6 +182,9 @@ public class Puppet extends HorizontalDirectionalBlock {
         }
 
         if (player.getItemInHand(InteractionHand.MAIN_HAND).getItem() != Items.AIR) {
+            if ((player.getItemInHand(InteractionHand.MAIN_HAND).getItem() == Items.SHEARS && currentSkin == Skin.PUPPET) || (player.getItemInHand(InteractionHand.MAIN_HAND).is(ItemTags.WOOL) && currentSkin != Skin.PUPPET)) {
+                return ItemInteractionResult.FAIL;
+            }
             return ItemInteractionResult.SUCCESS;
         }
         return ItemInteractionResult.FAIL;

@@ -9,7 +9,8 @@
 
   "tooltip.neospuppets.puppet_manipulator": "§8Hold [§7Ctrl§8] for controls.",
   "tooltip.neospuppets.puppet_manipulator.control_down.line_1": "§8Hold [§f§nCtrl§8] for controls.",
-  "tooltip.neospuppets.puppet_manipulator.control_down.line_2": "§6When right clicked:\n  §fWhen in main hand:\n  §7Changes the pose of a puppet.\n  §fWhen in off hand:\n  §7Rotates puppet clockwise.",
+  "tooltip.neospuppets.puppet_manipulator.control_down.line_2": "§6When right clicked:\n §fWhen in main hand:\n  §7Changes the pose of a puppet.\n §fWhen in off hand:\n  §7Rotates puppet clockwise.\n§6When left clicked in main hand\n §fWhen standing:\n  §7Copies puppet's pose to clipboard.\n §fWhen crouching:\n  §7Pastes copied pose to puppet.",
+  "tooltip.neospuppets.puppet_manipulator.clipboard": "Copied pose: %s",
 
   "tooltip.neospuppets.puppet": "§8Hold [§7Shift§8] for more information.",
   "tooltip.neospuppets.puppet.shift_down.line_1": "§8Hold [§f§nShift§8] for more information.",
@@ -19,7 +20,9 @@
   "tooltip.neospuppets.pattern_fabric.bound": "Bound to player: §d§n%s",
 
 
-  "message.neospuppets.puppet_pose_changed": "Changed puppet's pose to %s of %s",
+  "message.neospuppets.puppet_manipulator.pose_changed": "Changed puppet's pose to %s of %s",
+  "message.neospuppets.puppet_manipulator.clipboard_copy": "Copied pose %s to clipboard.",
+  "message.neospuppets.puppet_manipulator.clipboard_paste": "Pasted pose %s to puppet.",
 
   "message.neospuppets.pattern_fabric_bing_warning": "Bind to a player first!",
   "message.neospuppets.pattern_fabric_unknown_profile_warning": "Unknown Profile!"
