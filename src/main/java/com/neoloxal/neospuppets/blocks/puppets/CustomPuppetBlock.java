@@ -1,6 +1,7 @@
-package com.neoloxal.neospuppets.puppets;
+package com.neoloxal.neospuppets.blocks.puppets;
 
 import com.neoloxal.neospuppets.NeosPuppets;
+import com.neoloxal.neospuppets.Skin;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.BlockParticleOption;
@@ -29,7 +30,6 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Optional;
 import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 

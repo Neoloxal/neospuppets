@@ -1,4 +1,4 @@
-package com.neoloxal.neospuppets.network;
+package com.neoloxal.neospuppets.packets;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.network.codec.ByteBufCodecs;

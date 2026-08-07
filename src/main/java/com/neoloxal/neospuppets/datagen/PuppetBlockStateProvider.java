@@ -1,8 +1,8 @@
 package com.neoloxal.neospuppets.datagen;
 
 import com.neoloxal.neospuppets.NeosPuppets;
-import com.neoloxal.neospuppets.puppets.Puppet;
-import com.neoloxal.neospuppets.puppets.Skin;
+import com.neoloxal.neospuppets.blocks.puppets.Puppet;
+import com.neoloxal.neospuppets.Skin;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;

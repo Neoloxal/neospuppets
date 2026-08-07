@@ -1,5 +1,6 @@
-package com.neoloxal.neospuppets;
+package com.neoloxal.neospuppets.gui;
 
+import com.neoloxal.neospuppets.NeosPuppets;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.Container;

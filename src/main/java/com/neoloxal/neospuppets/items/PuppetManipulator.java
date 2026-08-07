@@ -1,18 +1,18 @@
-package com.neoloxal.neospuppets.puppets;
+package com.neoloxal.neospuppets.items;
 
 import com.neoloxal.neospuppets.NeosPuppets;
+import com.neoloxal.neospuppets.blocks.puppets.CustomPuppetBlockEntity;
+import com.neoloxal.neospuppets.blocks.puppets.Puppet;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;

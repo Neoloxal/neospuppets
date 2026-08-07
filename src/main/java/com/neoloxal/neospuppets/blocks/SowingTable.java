@@ -1,6 +1,6 @@
 package com.neoloxal.neospuppets.blocks;
 
-import com.neoloxal.neospuppets.SowingMenu;
+import com.neoloxal.neospuppets.gui.SowingMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;

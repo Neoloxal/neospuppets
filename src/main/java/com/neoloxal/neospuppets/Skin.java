@@ -1,4 +1,4 @@
-package com.neoloxal.neospuppets.puppets;
+package com.neoloxal.neospuppets;
 
 import net.minecraft.util.StringRepresentable;
 
