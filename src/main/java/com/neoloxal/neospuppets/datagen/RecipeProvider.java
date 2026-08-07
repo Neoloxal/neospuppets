@@ -47,6 +47,11 @@ public class RecipeProvider extends net.minecraft.data.recipes.RecipeProvider {
                 .requires(ItemTags.WOOL)
                 .unlockedBy("has_wool", has(ItemTags.WOOL)).save(recipeOutput);
 
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, NeosPuppets.PATTERN_FABRIC.get())
+                .requires(NeosPuppets.PATTERN_FABRIC.get())
+                .unlockedBy("has_pattern_fabric", has(NeosPuppets.PATTERN_FABRIC.get()))
+                .save(recipeOutput, "neospuppets:clear_pattern_fabric");
+
         super.buildRecipes(recipeOutput);
     }
 }

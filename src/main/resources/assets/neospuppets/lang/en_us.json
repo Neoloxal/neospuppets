@@ -7,6 +7,10 @@
   "item.neospuppets.pattern_fabric": "Pattern Fabric",
 
 
+  "menu.neospuppets.sowing.title": "Sowing Table",
+  "menu.neospuppets.sowing.edit_box.hint": "§7Player Name",
+
+
   "tooltip.neospuppets.puppet_manipulator": "§8Hold [§7Ctrl§8] for controls.",
   "tooltip.neospuppets.puppet_manipulator.control_down.line_1": "§8Hold [§f§nCtrl§8] for controls.",
   "tooltip.neospuppets.puppet_manipulator.control_down.line_2": "§6When right clicked:\n §fWhen in main hand:\n  §7Changes the pose of a puppet.\n §fWhen in off hand:\n  §7Rotates puppet clockwise.\n§6When left clicked in main hand\n §fWhen standing:\n  §7Copies puppet's pose to clipboard.\n §fWhen crouching:\n  §7Pastes copied pose to puppet.",

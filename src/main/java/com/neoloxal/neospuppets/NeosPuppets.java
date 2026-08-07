@@ -5,6 +5,7 @@ import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.neoloxal.neospuppets.blocks.SowingTable;
 import com.neoloxal.neospuppets.client.PuppetModel;
 import com.neoloxal.neospuppets.client.renderer.PuppetRenderer;
+import com.neoloxal.neospuppets.network.SowingTextPacket;
 import com.neoloxal.neospuppets.puppets.CustomPuppetBlockEntity;
 import com.neoloxal.neospuppets.puppets.CustomPuppetBlock;
 import com.neoloxal.neospuppets.puppets.Puppet;
@@ -16,6 +17,8 @@ import net.minecraft.core.component.DataComponentType;
 import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.SoundType;
@@ -26,6 +29,9 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import net.neoforged.neoforge.client.event.ModelEvent;
 import net.neoforged.neoforge.client.event.RegisterItemDecorationsEvent;
+import net.neoforged.neoforge.client.event.RegisterMenuScreensEvent;
+import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
+import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import org.slf4j.Logger;
 
@@ -117,6 +123,8 @@ public class NeosPuppets {
                     .networkSynchronized(ByteBufCodecs.VAR_INT)
     );
 
+    public static final Supplier<MenuType<SowingMenu>> SOWING_MENU = MENU_TYPES.register("sowing_menu", () -> new MenuType<>(SowingMenu::new, FeatureFlags.DEFAULT_FLAGS));
+
     private static Set<String> pendingFetches = new HashSet<>();
     private static Map<String, ResourceLocation> cashedProfiles = new HashMap<>();
     private static final List<String> FORCECASHEDPROFILES = List.of(
@@ -206,7 +214,7 @@ public class NeosPuppets {
         public static void registerModels(ModelEvent.RegisterAdditional event) {
             for (String pose : Puppet.POSES) {
                 event.register(ModelResourceLocation.standalone(
-                        ResourceLocation.fromNamespaceAndPath("neospuppets", "puppet/generic/" + pose)));
+                        ResourceLocation.fromNamespaceAndPath(NeosPuppets.MODID, "puppet/generic/" + pose)));
             }
         }
 
@@ -219,9 +227,30 @@ public class NeosPuppets {
         public static void registerItemProperties(FMLClientSetupEvent event) {
             event.enqueueWork(() -> {
                 ItemProperties.register(PATTERN_FABRIC.get(),
-                        ResourceLocation.fromNamespaceAndPath("neospuppets", "bound"),
+                        ResourceLocation.fromNamespaceAndPath(NeosPuppets.MODID, "bound"),
                         (stack, level, entity, seed) -> stack.has(NeosPuppets.SKIN_COMPONENT) ? 1.0f : 0.0f);
             });
+        }
+
+        @SubscribeEvent
+        public static void registerScreens(RegisterMenuScreensEvent event) {
+            event.register(SOWING_MENU.get(), SowingScreen::new);
+        }
+
+        @SubscribeEvent
+        public static void registerPayloads(RegisterPayloadHandlersEvent event) {
+            PayloadRegistrar registrar = event.registrar(NeosPuppets.MODID);
+            registrar.playToServer(SowingTextPacket.TYPE, SowingTextPacket.STREAM_CODEC,
+                    ((payload, context) -> {
+                        context.enqueueWork(() -> {
+                            AbstractContainerMenu menu = context.player().containerMenu;
+
+                            ItemStack newItem = menu.getSlot(36).getItem().copy();
+                            newItem.set(SKIN_COMPONENT, payload.text());
+
+                            menu.getSlot(37).set(newItem);
+                        });
+                    }));
         }
     }
 }
