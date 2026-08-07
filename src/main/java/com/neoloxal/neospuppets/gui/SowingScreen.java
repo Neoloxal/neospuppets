@@ -1,7 +1,5 @@
 package com.neoloxal.neospuppets.gui;
 
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -20,16 +18,13 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.network.PacketDistributor;
 import org.lwjgl.glfw.GLFW;
 
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.util.Optional;
-import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
+
+import static com.neoloxal.neospuppets.NeosPuppets.resolveProfile;
 
 public class SowingScreen extends AbstractContainerScreen<SowingMenu> {
     public static final ResourceLocation GUI_TEXTURE = ResourceLocation.fromNamespaceAndPath(NeosPuppets.MODID, "textures/gui/sowing_gui.png");
@@ -38,6 +33,11 @@ public class SowingScreen extends AbstractContainerScreen<SowingMenu> {
     String skinId = "default";
 
     EditBox editBox;
+    private String lastTypedText = "";
+    private long lastEditTimeMs = 0;
+    private static final long DEBOUNCE_DELAY_MS = 400;
+
+    private ItemStack lastInputStack = ItemStack.EMPTY;
 
     public SowingScreen(SowingMenu menu, Inventory playerInventory, Component title) {
         super(menu, playerInventory, title);
@@ -47,9 +47,20 @@ public class SowingScreen extends AbstractContainerScreen<SowingMenu> {
     protected void init() {
         super.init();
 
-        editBox = new EditBox(this.font, this.leftPos + 53, this.topPos + 15, 74, 16, Component.translatable("menu.neospuppets.sowing.edit_box"));
+        editBox = new EditBox(this.font, this.leftPos + 53, this.topPos + 15, 74, 16, Component.translatable("menu.neospuppets.sowing.edit_box")) {
+            @Override
+            public void setFocused(boolean focused) {
+                boolean wasFocused = this.isFocused();
+                super.setFocused(focused);
+                if (wasFocused && !focused) {
+                    submitText(this.getValue());
+                }
+            }
+        };
         editBox.setMaxLength(16);
         editBox.setHint(Component.translatable("menu.neospuppets.sowing.edit_box.hint"));
+        editBox.setCanLoseFocus(true);
+        editBox.setResponder(text -> lastEditTimeMs = System.currentTimeMillis());
 
         this.addRenderableWidget(editBox);
 
@@ -121,8 +132,7 @@ public class SowingScreen extends AbstractContainerScreen<SowingMenu> {
     public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
         if (this.editBox.isFocused()) {
             if (keyCode == GLFW.GLFW_KEY_ENTER || keyCode == GLFW.GLFW_KEY_KP_ENTER) {
-                PacketDistributor.sendToServer(new SowingTextPacket(this.editBox.getValue()));
-                downloadSkin(this.editBox.getValue());
+                submitText(this.editBox.getValue());
                 return true;
             }
             if (keyCode == GLFW.GLFW_KEY_E) {
@@ -130,6 +140,40 @@ public class SowingScreen extends AbstractContainerScreen<SowingMenu> {
             }
         }
         return super.keyPressed(keyCode, scanCode, modifiers);
+    }
+
+    @Override
+    public boolean mouseClicked(double mouseX, double mouseY, int button) {
+        if (editBox.isFocused() && !editBox.isMouseOver(mouseX, mouseY)) {
+            editBox.setFocused(false);
+        }
+
+        return super.mouseClicked(mouseX, mouseY, button);
+    }
+
+    @Override
+    protected void containerTick() {
+        super.containerTick();
+
+        String currentText = editBox.getValue();
+        boolean pastDebounceWindow = System.currentTimeMillis() - lastEditTimeMs > DEBOUNCE_DELAY_MS;
+        if (pastDebounceWindow && !currentText.equals(lastTypedText) && lastEditTimeMs != 0) {
+            lastTypedText = currentText;
+            submitText(currentText);
+        }
+
+        ItemStack currentInputStack = this.menu.getSlot(36).getItem();
+        if (!ItemStack.matches(currentInputStack, lastInputStack)) {
+            lastInputStack = currentInputStack.copy();
+            if (!currentText.isEmpty()) {
+                submitText(currentText);
+            }
+        }
+    }
+
+    private void submitText(String text) {
+        PacketDistributor.sendToServer(new SowingTextPacket(text));
+        downloadSkin(text);
     }
 
     private void downloadSkin(String skinName) {
@@ -156,35 +200,5 @@ public class SowingScreen extends AbstractContainerScreen<SowingMenu> {
                         NeosPuppets.LOGGER.debug("No account found for name: " + skinName);
                     });
                 });
-    }
-
-    private static Optional<UUID> resolveProfile(String name) {
-        try {
-            HttpClient client = HttpClient.newHttpClient();
-            HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("https://api.mojang.com/users/profiles/minecraft/" + name))
-                    .GET()
-                    .build();
-
-            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-
-            if (response.statusCode() != 200) {
-                // 404 = name doesn't exist, or some other error — either way, no UUID to give back
-                return Optional.empty();
-            }
-
-            JsonObject json = JsonParser.parseString(response.body()).getAsJsonObject();
-            String rawId = json.get("id").getAsString(); // no dashes, e.g. "069a79f444e94726a5befca90e38aaf"
-
-            // Insert dashes into the standard 8-4-4-4-12 UUID format
-            String dashed = rawId.replaceFirst(
-                    "(\\w{8})(\\w{4})(\\w{4})(\\w{4})(\\w{12})",
-                    "$1-$2-$3-$4-$5"
-            );
-
-            return Optional.of(UUID.fromString(dashed));
-        } catch (Exception e) {
-            return Optional.empty();
-        }
     }
 }

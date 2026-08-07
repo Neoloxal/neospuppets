@@ -1,5 +1,7 @@
 package com.neoloxal.neospuppets;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.mojang.serialization.Codec;
 import com.neoloxal.neospuppets.blocks.SowingTable;
 import com.neoloxal.neospuppets.client.PuppetModel;
@@ -51,6 +53,10 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.util.*;
 import java.util.function.Supplier;
 
@@ -126,6 +132,7 @@ public class NeosPuppets {
 
     private static Set<String> pendingFetches = new HashSet<>();
     private static Map<String, ResourceLocation> cashedProfiles = new HashMap<>();
+    private static Map<String, UUID> cashedUUIDs = new HashMap<>();
     private static final List<String> FORCECASHEDPROFILES = List.of(
             "default"
     );
@@ -143,10 +150,16 @@ public class NeosPuppets {
     }
 
     public static Map<String, ResourceLocation> getCashedProfiles() {return cashedProfiles;}
+    public static Map<String, UUID> getCashedUUIDs() {return cashedUUIDs;}
 
     public static void casheProfile(String skinUUID, ResourceLocation skinTexture) {
         cashedProfiles.put(skinUUID, skinTexture);
         NeosPuppets.LOGGER.debug("Cashing " + skinUUID + " as " + skinTexture);
+    }
+
+    public static void casheUUID(String skinName, UUID skinUUID) {
+        cashedUUIDs.put(skinName, skinUUID);
+        NeosPuppets.LOGGER.debug("Cashing " + skinName + " as " + skinUUID);
     }
 
     public static void decasheProfile(String skinUUID) {
@@ -155,6 +168,48 @@ public class NeosPuppets {
             LOGGER.debug("Decashing " + skinUUID);
         } else {
             LOGGER.warn("Cannot decashe"  + skinUUID + "!");
+        }
+    }
+
+    public static void decasheUUID(String skinName) {
+        cashedUUIDs.remove(skinName);
+        LOGGER.debug("Decashing " + skinName);
+    }
+
+    public static Optional<UUID> resolveProfile(String name) {
+        UUID cached = cashedUUIDs.get(name);
+        if (cached != null) {
+            return Optional.of(cached);
+        }
+
+        try {
+            HttpClient client = HttpClient.newHttpClient();
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create("https://api.mojang.com/users/profiles/minecraft/" + name))
+                    .GET()
+                    .build();
+
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+            if (response.statusCode() != 200) {
+                // 404 = name doesn't exist, or some other error — either way, no UUID to give back
+                return Optional.empty();
+            }
+
+            JsonObject json = JsonParser.parseString(response.body()).getAsJsonObject();
+            String rawId = json.get("id").getAsString(); // no dashes, e.g. "069a79f444e94726a5befca90e38aaf"
+
+            // Insert dashes into the standard 8-4-4-4-12 UUID format
+            String dashed = rawId.replaceFirst(
+                    "(\\w{8})(\\w{4})(\\w{4})(\\w{4})(\\w{12})",
+                    "$1-$2-$3-$4-$5"
+            );
+
+            UUID uuid = UUID.fromString(dashed);
+            casheUUID(name, uuid);
+            return Optional.of(uuid);
+        } catch (Exception e) {
+            return Optional.empty();
         }
     }
 

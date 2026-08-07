@@ -3,7 +3,7 @@
 	"credit": "Made with Blockbench",
 	"render_type": "minecraft:cutout",
 	"textures": {
-		"paper": "item/paper",
+		"paper": "neospuppets:item/empty_pattern_fabric",
 		"shears": "item/shears",
 		"string": "item/string",
 		"particle": "block/oak_log",
