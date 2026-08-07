@@ -1,6 +1,7 @@
 {
 	"format_version": "1.9.0",
 	"credit": "Made with Blockbench",
+	"parent": "minecraft:block/block",
 	"render_type": "minecraft:cutout",
 	"textures": {
 		"paper": "neospuppets:item/empty_pattern_fabric",
@@ -94,28 +95,5 @@
 				"down": {"uv": [16, 0, 0, 16], "texture": "#cover"}
 			}
 		}
-	],
-	"display": {
-		"thirdperson_righthand": {
-			"scale": [0.5, 0.5, 0.5]
-		},
-		"thirdperson_lefthand": {
-			"scale": [0.5, 0.5, 0.5]
-		},
-		"firstperson_righthand": {
-			"translation": [0, -0.5, 0],
-			"scale": [0.75, 0.75, 0.75]
-		},
-		"firstperson_lefthand": {
-			"translation": [0, -0.5, 0],
-			"scale": [0.75, 0.75, 0.75]
-		},
-		"ground": {
-			"scale": [0.5, 0.5, 0.5]
-		},
-		"gui": {
-			"rotation": [45, 45, 0],
-			"scale": [0.5, 0.5, 0.5]
-		}
-	}
+	]
 }
