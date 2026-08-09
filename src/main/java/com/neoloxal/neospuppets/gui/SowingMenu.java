@@ -121,6 +121,7 @@ public class SowingMenu extends AbstractContainerMenu {
     @Override
     public void removed(Player player) {
         super.removed(player);
+        this.getSlot(37).set(Items.AIR.getDefaultInstance());
         this.clearContainer(player, this.container);
     }
 }

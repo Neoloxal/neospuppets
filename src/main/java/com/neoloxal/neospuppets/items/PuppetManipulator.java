@@ -108,11 +108,16 @@ public class PuppetManipulator extends Item {
 
         ItemStack stack = player.getItemInHand(context.getHand());
 
-        CustomPuppetBlockEntity puppetEntity = (CustomPuppetBlockEntity) level.getBlockEntity(pos);
-        boolean isBlockEntity = false;
-        if (puppetEntity != null) {isBlockEntity = true;}
-
         if (stack.is(NeosPuppets.PUPPET_MANIPULATOR)) {
+            boolean isBlockEntity = false;
+            CustomPuppetBlockEntity puppetEntity;
+            if (level.getBlockEntity(pos) instanceof CustomPuppetBlockEntity) {
+                puppetEntity = (CustomPuppetBlockEntity) level.getBlockEntity(pos);
+                if (puppetEntity != null) {isBlockEntity = true;}
+            } else {
+                return;
+            }
+
             if (block == NeosPuppets.PUPPET.get() || block == NeosPuppets.CUSTOM_PUPPET_BLOCK.get()) {
                 if (!level.isClientSide()) {
                     if (isBlockEntity) {
