@@ -110,11 +110,11 @@ public class PuppetManipulator extends Item {
 
         if (stack.is(NeosPuppets.PUPPET_MANIPULATOR)) {
             boolean isBlockEntity = false;
-            CustomPuppetBlockEntity puppetEntity;
+            CustomPuppetBlockEntity puppetEntity = null;
             if (level.getBlockEntity(pos) instanceof CustomPuppetBlockEntity) {
                 puppetEntity = (CustomPuppetBlockEntity) level.getBlockEntity(pos);
                 if (puppetEntity != null) {isBlockEntity = true;}
-            } else {
+            } else if (!(block instanceof Puppet)) {
                 return;
             }
 
